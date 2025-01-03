@@ -1,0 +1,36 @@
+name: Lint Code
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "**.ts"
+      - "**.tsx"
+      - "**.js"
+      - "**.json"
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  # Reusable workflow for caching and Node.js setup
+  lint:
+    name: Cache Dependencies
+    uses: ./.github/workflows/shared-dependency-cache.yml
+    with:
+      node-version: "18"
+
+  # Lint job
+  lint-code:
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Install Dependencies
+        run: pnpm install
+
+      - name: Run Linter
+        run: pnpm lint

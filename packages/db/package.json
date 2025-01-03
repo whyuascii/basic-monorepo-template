@@ -1,0 +1,28 @@
+{
+  "name": "@workspace/db",
+  "version": "0.0.1",
+  "type": "module",
+  "private": true,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsup src --format esm,cjs --dts --out-dir dist",
+    "lint": "eslint . --max-warnings 0",
+    "test": "vitest",
+      "migrate:generate": "drizzle-kit generate --config drizzle.config.ts",
+  "migrate:run": "drizzle-kit migrate --config drizzle.config.ts"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.28.3",
+    "@drizzle-orm/mysql2": "^0.28.3",
+    "mysql2": "^3.4.3"
+  },
+  "devDependencies": {
+    "@workspace/eslint-config": "workspace:*",
+    "@workspace/typescript-config": "workspace:*",
+    "typescript": "^5.6.3",
+    "tsup": "^7.1.0",
+    "vitest": "^0.34.0",
+    "drizzle-kit": "^0.28.3"
+  }
+}

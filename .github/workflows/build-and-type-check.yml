@@ -1,0 +1,39 @@
+name: Build and Type Check
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "**.ts"
+      - "**.tsx"
+      - "apps/**"
+      - "packages/**"
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  # Reusable cache job
+  build:
+    name: Cache Dependencies
+    uses: ./.github/workflows/shared-dependency-cache.yml
+    with:
+      node-version: "18"
+
+  # Main build and type-check job
+  build-and-type-check:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Install Dependencies
+        run: pnpm install
+
+      - name: Build Workspace
+        run: pnpm build
+
+      - name: Type Check
+        run: pnpm tsc --noEmit
