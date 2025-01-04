@@ -2,9 +2,9 @@
 const config = {
   plugins: {
     tailwindcss: {
-      config: "./tailwind.config.js", // Path to the Tailwind config
+      config: './tailwind.config.js', // Path to the Tailwind config
     },
-        autoprefixer: {},
+    autoprefixer: {},
   },
 };
 

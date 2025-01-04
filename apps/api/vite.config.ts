@@ -1,5 +1,5 @@
-import { defineConfig, mergeConfig } from "vite";
-import { sharedConfig } from "../../packages/vite-config/vite.shared-config";
+import { defineConfig, mergeConfig } from 'vite';
+import { sharedConfig } from '../../packages/vite-config/vite.shared-config';
 
 export default mergeConfig(
   sharedConfig,
@@ -9,12 +9,12 @@ export default mergeConfig(
       port: 4000,
     },
     build: {
-      outDir: "dist",
+      outDir: 'dist',
     },
     resolve: {
       alias: {
-        "@api": "./src",
+        '@api': './src',
       },
     },
-  })
+  }),
 );

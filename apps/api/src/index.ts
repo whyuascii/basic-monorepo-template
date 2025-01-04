@@ -1,5 +1,5 @@
-import app from "./app";
-import { env } from "./utils/env";
+import app from './app';
+import { env } from './utils/env';
 
 app.listen({ port: Number(env.PORT) }, (err) => {
   if (err) {

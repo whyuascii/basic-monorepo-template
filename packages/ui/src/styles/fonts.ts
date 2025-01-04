@@ -1,3 +1,3 @@
-import "@fontsource/inter/variable.css";
+import '@fontsource/inter/variable.css';
 
-export const fontClass = "font-sans";
+export const fontClass = 'font-sans';
