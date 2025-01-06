@@ -5,6 +5,7 @@ import prettierConfig from 'eslint-config-prettier';
 import prettierPlugin from 'eslint-plugin-prettier';
 import reactPlugin from 'eslint-plugin-react';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
+import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import globals from 'globals';
 
 export default [
@@ -26,10 +27,28 @@ export default [
     },
     plugins: {
       '@typescript-eslint': typescriptPlugin,
+      'simple-import-sort': simpleImportSort,
     },
     rules: {
       ...typescriptPlugin.configs.recommended.rules,
       '@typescript-eslint/no-unused-vars': 'warn',
+      'react/jsx-uses-react': 0,
+      'react/react-in-jsx-scope': 0,
+      'no-unused-vars': 'off', // disable default eslint unused variable
+      'sort-imports': [
+        'error',
+        {
+          'groups': [
+            // Core modules and libraries
+            ['^@core/'],
+            ['^@server/'],
+            ['^@ui/'],
+            // Relative imports
+            ['^\\.'],
+          ],
+          'simple-import-sort/exports': 'error',
+        },
+      ],
     },
   },
 

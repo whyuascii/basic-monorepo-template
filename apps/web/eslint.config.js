@@ -1,13 +1,10 @@
-import sharedConfig from "@workspace/eslint-config";
+import sharedConfig from '@workspace/eslint-config';
 
 export default [
-    ...sharedConfig,
+  ...sharedConfig,
 
-    // App-specific overrides for `web`
-    {
-        files: ["**/*.tsx", "**/*.jsx"],
-        rules: {
-            "react/jsx-key": "error", // Enforce `key` prop in React elements
-        },
-    },
+  // App-specific overrides for `web`
+  {
+    files: ['**/*.tsx', '**/*.jsx'],
+  },
 ];

@@ -1,19 +1,27 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Layout from "./components/Layout";
-// import Dashboard from "./pages/Dashboard";
-// import Login from "./pages/Login";
-// import NotFound from "./pages/NotFound";
+import React from 'react';
+import { Route, Routes } from 'react-router';
+import { type RouteConfig, routes } from './config/routes';
+import { NotFound } from './pages/NotFound';
 
-const AppRoutes = () => (
-  <Router>
-    <Layout>
-      <Routes>
-        {/* <Route path="/" element={<Login />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="*" element={<NotFound />} /> */}
-      </Routes>
-    </Layout>
-  </Router>
+const generateRoutes = (routesConfig: RouteConfig[]) => {
+  return routesConfig.map(({ path, element, children }) => {
+    if (children) {
+      return (
+        <Route key={path} path={path} element={element}>
+          {generateRoutes(children)}
+        </Route>
+      );
+    }
+    return <Route key={path} path={path} element={element} />;
+  });
+};
+
+const AppRoutes: React.FC = () => (
+  <Routes>
+    {generateRoutes(routes)}
+    {/* Fallback for undefined routes */}
+    <Route path="*" element={<NotFound />} />
+  </Routes>
 );
 
 export default AppRoutes;

@@ -1,33 +1,21 @@
-import React, { Component } from "react";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import AppRoutes from "./routes";
-import "@workspace/ui/globals.css"; // Import shared global styles
-
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import '@workspace/ui/globals.css'; // Import shared global styles
+import React from 'react';
+import { BrowserRouter } from 'react-router';
+import { Header } from './components/Header';
+import { ErrorBoundary } from './error/ErrorBoundary';
+import AppRoutes from './routes';
 const queryClient = new QueryClient();
 
-class ErrorBoundary extends Component {
-  state = { hasError: false };
-
-  static getDerivedStateFromError() {
-    return { hasError: true };
-  }
-
-  render() {
-    if (this.state.hasError) {
-      return <h1>Something went wrong.</h1>;
-    }
-    return this.props.children;
-  }
-}
-
-const App = () => {
-  return (
+const App: React.FC = () => (
+  <BrowserRouter>
     <ErrorBoundary>
       <QueryClientProvider client={queryClient}>
+        <Header />
         <AppRoutes />
       </QueryClientProvider>
     </ErrorBoundary>
-  );
-};
+  </BrowserRouter>
+);
 
 export default App;

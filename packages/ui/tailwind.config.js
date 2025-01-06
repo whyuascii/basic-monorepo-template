@@ -9,10 +9,22 @@ export default {
         sans: ['Inter', ...fontFamily.sans],
       },
       colors: {
-        primary: '#4F46E5',
-        secondary: '#22C55E',
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
+        card: 'hsl(var(--card))',
+        cardForeground: 'hsl(var(--card-foreground))',
+        // Add other variables like --primary, --secondary as needed
+      },
+      borderColor: {
+        border: 'var(--border)', // Add this
       },
     },
   },
-  plugins: [require('@tailwindcss/forms')],
+  plugins: [
+    require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/typography'),
+    require('tailwind-scrollbar'),
+    require('tailwindcss-animate'),
+  ],
 };
