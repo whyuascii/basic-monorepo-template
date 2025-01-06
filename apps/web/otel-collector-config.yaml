@@ -1,0 +1,7 @@
+receivers:
+  otlp:
+    protocols:
+      http:
+        cors:
+          allowed_origins: ["*"]
+          allowed_headers: ["*"]
