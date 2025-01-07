@@ -1,4 +1,4 @@
-import { BaseErrorResponse } from '@workspace/service-contracts';
+import type { TBaseErrorResponse } from '@workspace/service-contracts';
 import type { FastifyError, FastifyInstance, FastifyRequest } from 'fastify';
 import { hasZodFastifySchemaValidationErrors, isResponseSerializationError } from 'fastify-type-provider-zod';
 import { APIError } from '../errors';
@@ -7,7 +7,7 @@ export const globalErrorHandler = (fastify: FastifyInstance, error: FastifyError
   let statusCode = error.statusCode || 500;
   const traceId = request.log.traceId || 'unknown-trace-id';
 
-  const message: BaseErrorResponse = {
+  const message: TBaseErrorResponse = {
     error: error.message || 'Internal Server Error',
     traceId,
     details: undefined,
