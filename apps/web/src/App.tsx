@@ -1,5 +1,4 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import '@workspace/ui/globals.css'; // Import shared global styles
 import React from 'react';
 import { BrowserRouter } from 'react-router';
 import { Header } from './components/Header';
