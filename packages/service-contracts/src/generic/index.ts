@@ -4,4 +4,4 @@ export const GenericSuccessResponse = z.object({
   success: z.boolean(),
 });
 
-export type GenericSuccessResponse = z.infer<typeof GenericSuccessResponse>;
+export type TGenericSuccessResponse = z.infer<typeof GenericSuccessResponse>;

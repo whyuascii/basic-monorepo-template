@@ -5,4 +5,4 @@ export const BaseErrorResponse = z.object({
   details: z.optional(z.any()), // Details can be a schema if needed
 });
 
-export type BaseErrorResponse = z.infer<typeof BaseErrorResponse>;
+export type TBaseErrorResponse = z.infer<typeof BaseErrorResponse>;
