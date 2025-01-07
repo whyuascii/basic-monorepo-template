@@ -1,5 +1,6 @@
 import type { FastifyInstance } from 'fastify';
 import fastifyPlugin from 'fastify-plugin';
+
 import config from './config';
 import cookie from './cookie';
 import cors from './cors';

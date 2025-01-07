@@ -38,6 +38,7 @@ class ErrorBoundaryClass extends Component<React.PropsWithChildren<ErrorBoundary
 }
 
 // Functional wrapper to provide `navigate` and `location` props
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export const ErrorBoundary: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
   const navigate = useNavigate();
   const location = useLocation();

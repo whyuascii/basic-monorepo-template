@@ -6,7 +6,7 @@ export default fastifyPlugin(
   (fastify: FastifyInstance, _options: FastifyPluginOptions, done: (err?: Error | undefined) => void) => {
     const envSchema = {
       type: 'object',
-      required: ["OAUTH2_CLIENT_ID", "OAUTH2_CLIENT_SECRET", "OAUTH2_CALLBACK_URL"],
+      required: ['OAUTH2_CLIENT_ID', 'OAUTH2_CLIENT_SECRET', 'OAUTH2_CALLBACK_URL'],
       properties: {
         ENVIRONMENT_STAGE: { type: 'string', default: 'production' },
         HOST: { type: 'string', default: '0.0.0.0' },

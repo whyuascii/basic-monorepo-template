@@ -1,9 +1,10 @@
+import type { IncomingMessage, ServerResponse } from 'node:http';
+
 import dotenv from 'dotenv';
 import type { FastifyBaseLogger, FastifyInstance, FastifyTypeProviderDefault, RawServerDefault } from 'fastify';
-import type { IncomingMessage, ServerResponse } from 'node:http';
-import { setupTracing, shutdownTracing } from './config/tracing-config';
 
 import { build } from './app';
+import { setupTracing, shutdownTracing } from './config/tracing-config';
 
 const start = async () => {
   let fastify: FastifyInstance<
@@ -19,7 +20,7 @@ const start = async () => {
     const localEnv = dotenv.config({ path: './.env' });
     console.log('Local environment loaded', localEnv);
   }
-  
+
   // Initialize tracing
   try {
     await setupTracing();
@@ -39,7 +40,6 @@ const start = async () => {
 
   const PORT = fastify.config?.PORT || process.env.PORT || 3000;
   const HOST = fastify.config?.HOST || '0.0.0.0';
-
 
   // Start the server
   try {

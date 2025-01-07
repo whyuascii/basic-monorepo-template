@@ -1,5 +1,5 @@
 import { Span } from '@opentelemetry/api';
-import 'fastify';
+import { FastifyReply } from 'fastify';
 
 declare module 'fastify' {
   export interface FastifyRequest {

@@ -1,6 +1,6 @@
-import fastifyMultipart from "@fastify/multipart";
-import type { FastifyInstance } from "fastify";
-import fastifyPlugin from "fastify-plugin";
+import fastifyMultipart from '@fastify/multipart';
+import type { FastifyInstance } from 'fastify';
+import fastifyPlugin from 'fastify-plugin';
 
 /**
  * This plugins adds support for filestream / multipart/form-data Content Type
@@ -8,5 +8,5 @@ import fastifyPlugin from "fastify-plugin";
  * @see https://www.npmjs.com/package/@fastify/multipart
  */
 export default fastifyPlugin(async (fastify: FastifyInstance) => {
-	await fastify.register(fastifyMultipart);
+  await fastify.register(fastifyMultipart);
 });

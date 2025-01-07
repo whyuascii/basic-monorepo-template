@@ -1,5 +1,5 @@
 import { context, trace } from '@opentelemetry/api';
-import type { FastifyRequest, FastifyReply } from 'fastify';
+import type { FastifyReply, FastifyRequest } from 'fastify';
 
 export const setTraceContext = (request: FastifyRequest, reply: FastifyReply) => {
   const span = trace.getSpan(context.active());

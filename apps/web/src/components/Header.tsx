@@ -52,7 +52,9 @@ const generateLinks = (routesConfig: RouteConfig[]) => {
             end
             className={({ isActive }) =>
               `px-3 py-2 rounded-lg ${
-                isActive ? 'bg-primary text-blue-400 underline font-bold' : 'text-gray-600 hover:text-primary hover:bg-gray-100'
+                isActive
+                  ? 'bg-primary text-blue-400 underline font-bold'
+                  : 'text-gray-600 hover:text-primary hover:bg-gray-100'
               }`
             }
           >

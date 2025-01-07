@@ -30,8 +30,6 @@ const authHandlers = (fastify: FastifyInstance, opts: { version: string; rootPat
       },
     },
     handler: async (request, reply) => {
-      const { email, password } = request.body;
-
       // service call
 
       return reply.status(201).send({ message: 'User registered successfully.' });
@@ -52,7 +50,7 @@ const authHandlers = (fastify: FastifyInstance, opts: { version: string; rootPat
       },
     },
     handler: async (request, reply) => {
-      const { email, password } = request.body;
+      const { email } = request.body;
 
       // service call
       // if (!isValid) {
