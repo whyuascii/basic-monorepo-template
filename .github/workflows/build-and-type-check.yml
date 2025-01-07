@@ -5,25 +5,25 @@ on:
     branches:
       - main
     paths:
-      - "**.ts"
-      - "**.tsx"
-      - "apps/**"
-      - "packages/**"
+      - '**/*.ts'
+      - '**/*.tsx'
+      - 'apps/**'
+      - 'packages/**'
   pull_request:
     branches:
       - main
 
 jobs:
-  # Reusable cache job
-  build:
+  # Reuse shared dependency cache job
+  cache-dependencies:
     name: Cache Dependencies
     uses: ./.github/workflows/shared-dependency-cache.yml
     with:
-      node-version: "18"
+      node-version: '20'
 
-  # Main build and type-check job
+  # Build and type-check job
   build-and-type-check:
-    needs: build
+    needs: cache-dependencies
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code

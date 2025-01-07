@@ -4,9 +4,10 @@ on:
   workflow_call:
     inputs:
       node-version:
-        description: "Node.js version to use"
+        description: 'Node.js version to use'
+        type: string
         required: false
-        default: "18"
+        default: '20'
 
 jobs:
   cache-dependencies:

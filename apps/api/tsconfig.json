@@ -1,6 +1,14 @@
 {
-  "extends": "../../packages/typescript-config/tsconfig.api.json",
   "compilerOptions": {
-    "baseUrl": "./src"
-  }
+    "outDir": "./dist", // Output directory for compiled files
+    "declaration": true, // Enable .d.ts generation
+    "declarationMap": true,
+    "strict": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "target": "ESNext",
+    "module": "ESNext"
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
 }

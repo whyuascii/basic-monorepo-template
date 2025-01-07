@@ -1,0 +1,34 @@
+name: Semantic Release
+
+on:
+  push:
+    branches:
+      - main # Adjust for the branch where releases should be created
+
+jobs:
+  release:
+    name: Create Release
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      # Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      # Install dependencies
+      - name: Install Dependencies
+        run: pnpm install
+
+      # Run Semantic Release
+      - name: Run Semantic Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }} # Required for GitHub integration
+        run: |
+          npx semantic-release
