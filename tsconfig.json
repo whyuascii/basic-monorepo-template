@@ -6,7 +6,6 @@
     { "path": "./apps/web" },
     { "path": "./apps/api" },
     { "path": "./packages/ui" },
-    { "path": "./packages/typescript-config" },
-    { "path": "./packages/eslint-config" }
+    { "path": "./packages/service-contracts" },
   ]
 }

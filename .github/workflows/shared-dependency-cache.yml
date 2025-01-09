@@ -4,9 +4,10 @@ on:
   workflow_call:
     inputs:
       node-version:
-        description: "Node.js version to use"
+        description: 'Node.js version to use'
+        type: string
         required: false
-        default: "18"
+        default: '20'
 
 jobs:
   cache-dependencies:
@@ -19,6 +20,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ inputs.node-version }}
+
+      - name: Install pnpm
+        run: npm install -g pnpm
 
       - name: Cache Dependencies
         uses: actions/cache@v3

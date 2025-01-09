@@ -5,29 +5,32 @@ on:
     branches:
       - main
     paths:
-      - "**.ts"
-      - "**.tsx"
-      - "**.js"
-      - "**.json"
+      - '**/*.ts'
+      - '**/*.tsx'
+      - '**/*.js'
+      - '**/*.json'
   pull_request:
     branches:
       - main
 
 jobs:
-  # Reusable workflow for caching and Node.js setup
-  lint:
+  # Reuse shared dependency cache job
+  cache-dependencies:
     name: Cache Dependencies
     uses: ./.github/workflows/shared-dependency-cache.yml
     with:
-      node-version: "18"
+      node-version: '20'
 
-  # Lint job
+  # Main linting job
   lint-code:
-    needs: lint
+    needs: cache-dependencies
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
+
+      - name: Install pnpm
+        run: npm install -g pnpm
 
       - name: Install Dependencies
         run: pnpm install
