@@ -12,8 +12,10 @@ updates:
     ignore:
       - dependency-name: "some-dependency"
         versions:
-          - ">=1.0.0 <2.0.0"
+          - "<1.0.0"
     commit-message:
-      prefix: "chore"
-      include: "scope"
+      prefix: "build(deps)"
+      include: "all"
+      message: "Update {dependency-name} to version {version} for minor updates"
     rebase-strategy: "auto"
+    versioning-strategy: "minor"
