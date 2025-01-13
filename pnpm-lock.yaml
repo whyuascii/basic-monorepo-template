@@ -94,8 +94,8 @@ importers:
         specifier: ^9.0.1
         version: 9.0.1
       '@fastify/oauth2':
-        specifier: ^8.1.0
-        version: 8.1.0
+        specifier: ^8.1.1
+        version: 8.1.1
       '@fastify/rate-limit':
         specifier: ^10.2.1
         version: 10.2.1
@@ -1467,8 +1467,8 @@ packages:
   '@fastify/multipart@9.0.1':
     resolution: {integrity: sha512-vt2gOCw/O4EwpN4KlLVJxth4iQlDf7T5ggw2Db2C+UbO2WJBG7y0jEBvu/HT6JIW/lBYaqrrUy9MmTpCKgXEpw==}
 
-  '@fastify/oauth2@8.1.0':
-    resolution: {integrity: sha512-SMcvStTvhF+UcyH+7uLWvKrxM4g5evZafjtQWRAg02C/dlsOrqLK0s9/1aszhWY6PBklJ6jduFPpl+sB4l2DlQ==}
+  '@fastify/oauth2@8.1.1':
+    resolution: {integrity: sha512-EEsSrglbqlHIvNVAD94EMoCxplgDLR9jCQ5R11uiEFGhA/ygx+hd/jVM+8nLJKssLs2yVGJGSoFpjwaE2uPLyA==}
 
   '@fastify/rate-limit@10.2.1':
     resolution: {integrity: sha512-6rM4MXBtz9j6i9ChAVNz8ZA2yzSTGswIR3XvIbzHpe7JUWvbL7NJylFO12n7zKWfl3rEpOYiKogD98scl8SMGQ==}
@@ -7518,7 +7518,7 @@ snapshots:
       fastify-plugin: 5.0.1
       secure-json-parse: 3.0.2
 
-  '@fastify/oauth2@8.1.0':
+  '@fastify/oauth2@8.1.1':
     dependencies:
       '@fastify/cookie': 11.0.2
       fastify-plugin: 5.0.1
