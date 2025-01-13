@@ -103,8 +103,8 @@ importers:
         specifier: ^6.0.2
         version: 6.0.2
       '@fastify/swagger':
-        specifier: ^9.4.0
-        version: 9.4.0
+        specifier: ^9.4.1
+        version: 9.4.1
       '@opentelemetry/exporter-trace-otlp-http':
         specifier: ^0.57.0
         version: 0.57.0(@opentelemetry/api@1.9.0)
@@ -1476,8 +1476,8 @@ packages:
   '@fastify/sensible@6.0.2':
     resolution: {integrity: sha512-sva4j0CDeFKpYepjiELnaeUam3X2u3rCS2BgQettpph89XGJQlxgslWihiQN5HBE9cjc1Cl4iy6Hcu1HhhFhzA==}
 
-  '@fastify/swagger@9.4.0':
-    resolution: {integrity: sha512-3hF7asqyNfu41aeDA/ATlIG0RY4XizgaDqPR0nc1Unt3EiXWjkVMiELLaH5WZKNvB4BA/5Wovxdin7N4ii7YHw==}
+  '@fastify/swagger@9.4.1':
+    resolution: {integrity: sha512-VyQ0tTPYIvjHaaIStrXajTEx2xBf0FjYkXfm6GPWA/aCk5q+85Jl//F37BwxUAC5u4lMColWkktCQfczE3WBrQ==}
 
   '@floating-ui/core@1.6.8':
     resolution: {integrity: sha512-7XJ9cPU+yI2QeLS+FCSlqNFZJq8arvswefkZrYI1yQBbftw6FyrZOxYSh+9S7z7TpeWlRt9zJ5IhM1WIL334jA==}
@@ -7542,7 +7542,7 @@ snapshots:
       type-is: 1.6.18
       vary: 1.1.2
 
-  '@fastify/swagger@9.4.0':
+  '@fastify/swagger@9.4.1':
     dependencies:
       fastify-plugin: 5.0.1
       json-schema-resolver: 2.0.0
