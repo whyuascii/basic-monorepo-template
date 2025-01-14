@@ -29,14 +29,14 @@
     "i18next": "^24.2.1",
     "i18next-browser-languagedetector": "^8.0.2",
     "i18next-http-backend": "^3.0.1",
-    "react": "^18.3.1",
+    "react": "^19.0.0",
     "react-dom": "^18.3.1",
     "react-i18next": "^15.4.0",
     "react-router": "^7.1.1"
   },
   "devDependencies": {
     "@types/node-fetch": "^2.6.12",
-    "@types/react": "18.3.12",
+    "@types/react": "19.0.6",
     "@types/react-dom": "18.2.7",
     "@vitejs/plugin-react": "^4.3.4",
     "@workspace/eslint-config": "workspace:*",
