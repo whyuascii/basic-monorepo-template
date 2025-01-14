@@ -1,0 +1,15 @@
+{
+  "pricing": {
+    "title": "Choose Your Plan",
+    "basic": "Basic Plan",
+    "pro": "Pro Plan",
+    "enterprise": "Enterprise Plan",
+    "feature1": "Feature 1 included",
+    "feature2": "Feature 2 included",
+    "feature3": "Pro Feature 1 included",
+    "feature4": "Pro Feature 2 included",
+    "feature5": "Enterprise Feature 1 included",
+    "feature6": "Enterprise Feature 2 included",
+    "cta": "Select Plan"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "hero": {
+    "title": "Welcome to Our SaaS Platform",
+    "description": "The best way to manage your business seamlessly.",
+    "ctaPrimary": "Get Started",
+    "ctaSecondary": "Learn More"
+  },
+  "auth": {
+    "loginTitle": "Login to Your Account",
+    "registerTitle": "Create an Account",
+    "namePlaceholder": "Full Name",
+    "emailPlaceholder": "Email Address",
+    "passwordPlaceholder": "Password",
+    "loginButton": "Login",
+    "registerButton": "Register",
+    "noAccount": "Don't have an account?",
+    "haveAccount": "Already have an account?",
+    "registerLink": "Sign up here",
+    "loginLink": "Log in here"
+  },
+  "error": {
+    "title": "Oops!",
+    "message": "Something went wrong. Please try again later.",
+    "goBack": "Go Back"
+  },
+  "notFound": {
+    "title": "404 - Page Not Found",
+    "message": "The page you are looking for does not exist.",
+    "goHome": "Go to Home"
+  },
+  "nav": {
+    "testError": "Test Error",
+    "error": "Error",
+    "about": "About",
+    "features": "Features",
+    "pricing": "Pricing",
+    "login": "Login",
+    "logout": "Logout",
+    "dashboard": "Dashboard",
+    "settings": "Settings",
+    "profile": "Profile",
+    "auth": "Auth",
+    "home": "Home",
+    "resources": "Resources"
+  },
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "tasks": "Tasks",
+    "reports": "Reports",
+    "hello1": "Hello 1"
+  }
+}

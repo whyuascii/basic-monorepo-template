@@ -1,0 +1,15 @@
+{
+  "pricing": {
+    "title": "Elige tu Plan",
+    "basic": "Plan Básico",
+    "pro": "Plan Pro",
+    "enterprise": "Plan Empresarial",
+    "feature1": "Función 1 incluida",
+    "feature2": "Función 2 incluida",
+    "feature3": "Función Pro 1 incluida",
+    "feature4": "Función Pro 2 incluida",
+    "feature5": "Función Empresarial 1 incluida",
+    "feature6": "Función Empresarial 2 incluida",
+    "cta": "Seleccionar Plan"
+  }
+}

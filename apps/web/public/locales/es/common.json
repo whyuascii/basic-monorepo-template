@@ -1,0 +1,31 @@
+{
+  "hero": {
+    "title": "Bienvenido a Nuestra Plataforma SaaS",
+    "description": "La mejor manera de gestionar tu negocio sin problemas.",
+    "ctaPrimary": "Comenzar",
+    "ctaSecondary": "Saber Más"
+  },
+  "auth": {
+    "loginTitle": "Inicia sesión en tu cuenta",
+    "registerTitle": "Crea una cuenta",
+    "namePlaceholder": "Nombre completo",
+    "emailPlaceholder": "Dirección de correo",
+    "passwordPlaceholder": "Contraseña",
+    "loginButton": "Iniciar sesión",
+    "registerButton": "Registrarse",
+    "noAccount": "¿No tienes una cuenta?",
+    "haveAccount": "¿Ya tienes una cuenta?",
+    "registerLink": "Regístrate aquí",
+    "loginLink": "Inicia sesión aquí"
+  },
+  "error": {
+    "title": "¡Vaya!",
+    "message": "Algo salió mal. Por favor, inténtalo de nuevo más tarde.",
+    "goBack": "Regresar"
+  },
+  "notFound": {
+    "title": "404 - Página No Encontrada",
+    "message": "La página que buscas no existe.",
+    "goHome": "Ir a Inicio"
+  }
+}
