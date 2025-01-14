@@ -4,6 +4,7 @@ declare global {
   }
 }
 
+//eslint-disable-next-line @typescript-eslint/no-explicit-any
 class ErrorResponse<T = any> extends Error {
   response: Response;
   data: T;
@@ -35,6 +36,7 @@ const getBaseUrl = (): string => {
  * @param options Additional fetch options.
  * @returns A tuple containing the response data and the full response.
  */
+// eslint-disable-next-line no-undef
 export const request = async <T>(url: string, options: RequestInit = {}): Promise<[T, Response]> => {
   const csrfValue = window.xsrf_val;
   const baseUrl = getBaseUrl();

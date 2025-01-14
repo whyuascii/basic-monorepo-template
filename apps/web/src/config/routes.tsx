@@ -1,4 +1,5 @@
 import React from 'react';
+
 import AuthPage from '../pages/AuthPage';
 import { DashboardPage } from '../pages/DashboardPage';
 import { ErrorPage } from '../pages/ErrorPage';

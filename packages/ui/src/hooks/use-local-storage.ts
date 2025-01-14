@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 type UseLocalStorageReturn<T> = [T, (value: T) => void];
 

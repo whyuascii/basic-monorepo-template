@@ -2,6 +2,7 @@ import fastifyAuth from '@fastify/auth';
 import fastifyHelmet from '@fastify/helmet';
 import Fastify, { type FastifyError, type FastifyReply, type FastifyRequest } from 'fastify';
 import { serializerCompiler, validatorCompiler } from 'fastify-type-provider-zod';
+
 import { getLoggerConfig } from './config/logging-config';
 import plugins from './plugins';
 import attachRoutes from './routes';

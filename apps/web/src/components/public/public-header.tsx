@@ -3,6 +3,7 @@ import { ModeToggle } from '@workspace/ui/components/mode-toggle';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router';
+
 import { RouteConfig } from '../../config/routes';
 interface SidebarProps {
   routes: RouteConfig[];

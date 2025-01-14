@@ -1,6 +1,7 @@
 import { context, Span, trace } from '@opentelemetry/api';
 import type { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
 import fastifyPlugin from 'fastify-plugin';
+
 import { tracer } from '../config/tracing-config';
 
 /**

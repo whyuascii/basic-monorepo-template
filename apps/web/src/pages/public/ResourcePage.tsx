@@ -1,6 +1,6 @@
+import ContainerLayout from '@workspace/ui/layouts/container-layout';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import ContainerLayout from '@workspace/ui/layouts/container-layout';
 
 const ResourcesPage: React.FC = () => {
   const { t } = useTranslation('common');

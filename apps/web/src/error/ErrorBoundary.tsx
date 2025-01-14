@@ -1,5 +1,6 @@
 import React, { Component, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router';
+
 import { handleError } from './error-handler';
 
 interface ErrorBoundaryProps {

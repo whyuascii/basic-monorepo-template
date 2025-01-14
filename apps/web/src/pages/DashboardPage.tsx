@@ -1,7 +1,5 @@
-import React from 'react';
-
 import ContainerLayout from '@workspace/ui/layouts/container-layout';
-
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 export const DashboardPage: React.FC = () => {

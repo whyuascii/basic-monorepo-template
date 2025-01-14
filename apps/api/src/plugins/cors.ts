@@ -1,6 +1,7 @@
 import fastifyCors from '@fastify/cors';
 import type { FastifyInstance } from 'fastify';
 import fastifyPlugin from 'fastify-plugin';
+
 import { selectAllowedCORS } from '../utils/select-cors';
 
 export default fastifyPlugin(

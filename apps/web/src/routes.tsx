@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router';
+
 import { LayoutWrapper } from './components/layout-wrapper';
 import { type RouteConfig, routes } from './config/routes';
 import { NotFoundPage } from './pages/NotFound';

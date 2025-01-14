@@ -1,8 +1,8 @@
 import { Alert } from '@workspace/ui/components/alert';
 import { Button } from '@workspace/ui/components/button';
 import React from 'react';
-import { useNavigate } from 'react-router';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router';
 
 export const ErrorPage: React.FC = () => {
   const navigate = useNavigate();

@@ -1,6 +1,7 @@
 import type { TBaseErrorResponse } from '@workspace/service-contracts';
 import type { FastifyError, FastifyInstance, FastifyRequest } from 'fastify';
 import { hasZodFastifySchemaValidationErrors, isResponseSerializationError } from 'fastify-type-provider-zod';
+
 import { APIError } from '../errors';
 
 export const globalErrorHandler = (fastify: FastifyInstance, error: FastifyError, request: FastifyRequest) => {
