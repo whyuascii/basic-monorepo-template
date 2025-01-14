@@ -5,7 +5,10 @@
     "paths": {
       "ui": ["src/components"],
       "hooks": ["src/hooks"],
-      "utils": ["src/lib/utils"]
+      "utils": ["src/lib/utils"],
+      "styles": ["src/styles"],
+      "layouts": ["src/layouts"],
+      "lib": ["src/lib"],
     }
   }
 }

@@ -1,7 +1,8 @@
 import React from 'react';
 import { Route, Routes } from 'react-router';
+import { LayoutWrapper } from './components/layout-wrapper';
 import { type RouteConfig, routes } from './config/routes';
-import { NotFound } from './pages/NotFound';
+import { NotFoundPage } from './pages/NotFound';
 
 const generateRoutes = (routesConfig: RouteConfig[]) => {
   return routesConfig.map(({ path, element, children }) => {
@@ -17,11 +18,13 @@ const generateRoutes = (routesConfig: RouteConfig[]) => {
 };
 
 const AppRoutes: React.FC = () => (
-  <Routes>
-    {generateRoutes(routes)}
-    {/* Fallback for undefined routes */}
-    <Route path="*" element={<NotFound />} />
-  </Routes>
+  <LayoutWrapper>
+    <Routes>
+      {generateRoutes(routes)}
+      {/* Fallback for undefined routes */}
+      <Route path="*" element={<NotFoundPage />} />
+    </Routes>
+  </LayoutWrapper>
 );
 
 export default AppRoutes;

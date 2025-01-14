@@ -7,6 +7,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', ...fontFamily.sans],
+        display: ['"Open Sans"', ...fontFamily.sans],
       },
       colors: {
         border: 'hsl(var(--border))',
