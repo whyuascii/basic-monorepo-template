@@ -53,19 +53,19 @@ export const request = async <T>(url: string, options: RequestInit = {}): Promis
     credentials: 'same-origin', // Ensures cookies are sent
   });
 
-  let data: T;
+  let rData: T;
 
   try {
-    data = await response.json();
+    rData = await response.json();
   } catch {
-    data = null as unknown as T; // Graceful handling if response is not JSON
+    rData = null as unknown as T; // Graceful handling if response is not JSON
   }
 
   if (!response.ok) {
-    // Check if the data has a `message` property (optional chaining ensures safe access).
-    const errorMessage = (data as { message?: string })?.message || 'An error occurred';
-    throw new ErrorResponse<T>(errorMessage, response, data);
+    // Check if the rData has a `message` property (optional chaining ensures safe access).
+    const errorMessage = (rData as { message?: string })?.message || 'An error occurred';
+    throw new ErrorResponse<T>(errorMessage, response, rData);
   }
 
-  return [data, response];
+  return [rData, response];
 };

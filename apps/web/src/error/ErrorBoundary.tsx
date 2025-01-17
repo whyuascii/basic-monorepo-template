@@ -1,11 +1,15 @@
+import { ToastProps } from '@workspace/ui/components/toast';
+import { useToast } from '@workspace/ui/hooks/use-toast';
 import React, { Component, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router';
 
+import { CustomError, RequestError } from './custom-errors';
 import { handleError } from './error-handler';
 
 interface ErrorBoundaryProps {
   navigate: (path: string) => void;
   location: string;
+  toast: ToastProps;
 }
 
 interface ErrorBoundaryState {
@@ -26,8 +30,30 @@ class ErrorBoundaryClass extends Component<React.PropsWithChildren<ErrorBoundary
     }
   }
 
-  componentDidCatch() {
-    this.props.navigate('/error');
+  componentDidCatch(error: Error) {
+    const { toast, navigate } = this.props;
+
+    if (error instanceof RequestError) {
+      toast({
+        title: 'Request Error',
+        description: error.friendlyMessage,
+        variant: 'destructive',
+      });
+    } else if (error instanceof CustomError) {
+      toast({
+        title: 'Error',
+        description: error.friendlyMessage || 'Something went wrong.',
+        variant: 'destructive',
+      });
+    } else {
+      // Uncaught Error
+      toast({
+        title: 'Oops',
+        description: 'An unexpected error occurred.',
+        variant: 'destructive',
+      });
+      navigate('/error'); // Redirect to a generic error page
+    }
   }
 
   render() {
@@ -43,6 +69,7 @@ class ErrorBoundaryClass extends Component<React.PropsWithChildren<ErrorBoundary
 export const ErrorBoundary: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { toast } = useToast();
 
   useEffect(() => {
     // Reset scroll position or perform other tasks on navigation
@@ -50,7 +77,7 @@ export const ErrorBoundary: React.FC<React.PropsWithChildren<{}>> = ({ children 
   }, [location]);
 
   return (
-    <ErrorBoundaryClass navigate={navigate} location={location.pathname}>
+    <ErrorBoundaryClass navigate={navigate} location={location.pathname} toast={toast}>
       {children}
     </ErrorBoundaryClass>
   );

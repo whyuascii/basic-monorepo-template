@@ -1,64 +1,59 @@
+import { RequestError } from '../../error';
 import { request } from './base-request';
 
 //TODO: Interfaces should come from the service-contracts package
-export interface User {
-  id: number;
-  name: string;
+export interface LoginRequest {
   email: string;
+  password: string;
 }
 
 export interface CreateUserRequest {
-  name: string;
   email: string;
+  password: string;
+  // Add other fields as needed
 }
 
-export interface UpdateUserRequest {
-  id: number;
-  name?: string;
-  email?: string;
-}
-
-/**
- * Fetch all users from the API.
- */
-export const fetchUsers = async (): Promise<User[]> => {
-  const [data] = await request<User[]>('/users', { method: 'GET' });
-  return data;
-};
-
-/**
- * Fetch a single user by ID.
- */
-export const fetchUserById = async (id: number): Promise<User> => {
-  const [data] = await request<User>(`/users/${id}`, { method: 'GET' });
-  return data;
-};
-
-/**
- * Create a new user.
- */
-export const createUser = async (user: CreateUserRequest): Promise<User> => {
-  const [data] = await request<User>('/users', {
+export const loginUser = async (data: LoginRequest) => {
+  const [rData, response] = await request('/api/login', {
     method: 'POST',
-    body: JSON.stringify(user),
+    body: JSON.stringify(data),
+    headers: { 'Content-Type': 'application/json' },
   });
-  return data;
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new RequestError('Login failed', '/api/login', errorText || 'Invalid login credentials.');
+  }
 };
 
-/**
- * Update an existing user by ID.
- */
-export const updateUser = async (user: UpdateUserRequest): Promise<User> => {
-  const [data] = await request<User>(`/users/${user.id}`, {
-    method: 'PUT',
-    body: JSON.stringify(user),
+export const registerUser = async (data: CreateUserRequest) => {
+  const [rData, response] = await request('/api/register', {
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers: { 'Content-Type': 'application/json' },
   });
-  return data;
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new RequestError(
+      'Registration failed',
+      '/api/register',
+      errorText || 'Unable to register user. Please try again.',
+    );
+  }
+
+  return rData;
 };
 
-/**
- * Delete a user by ID.
- */
-export const deleteUser = async (id: number): Promise<void> => {
-  await request<void>(`/users/${id}`, { method: 'DELETE' });
+export const logoutUser = async () => {
+  const [rData, response] = await request('/api/logout', {
+    method: 'POST',
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new RequestError('Logout failed', '/api/logout', errorText || 'Unable to log out. Please try again.');
+  }
+
+  return rData;
 };

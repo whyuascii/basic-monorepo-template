@@ -1,41 +1,25 @@
-import { createUser, deleteUser, fetchUserById, fetchUsers, updateUser } from '../services';
+import { CreateUserRequest, LoginRequest, loginUser, logoutUser, registerUser } from '../services';
 
-export const usersQuery = () => ({
-  queryKey: ['users'],
-  queryFn: fetchUsers,
+export const loginQuery = (data: LoginRequest) => ({
+  queryKey: ['login', data.email],
+  queryFn: () => loginUser(data),
   meta: {
-    errorMessage: 'Failed to fetch users.',
+    errorMessage: 'Login failed. Please check your credentials and try again.',
   },
 });
 
-export const userByIdQuery = (id: number) => ({
-  queryKey: ['user', id],
-  queryFn: () => fetchUserById(id),
+export const registerQuery = (data: CreateUserRequest) => ({
+  queryKey: ['register', data.email],
+  queryFn: () => registerUser(data),
   meta: {
-    errorMessage: `Failed to fetch user with ID: ${id}.`,
+    errorMessage: 'Registration failed. Please check your details and try again.',
   },
 });
 
-export const createUserMutation = () => ({
-  mutationFn: createUser,
+export const logoutQuery = () => ({
+  queryKey: ['logout'],
+  queryFn: () => logoutUser(),
   meta: {
-    successMessage: 'User created successfully!',
-    errorMessage: 'Failed to create user.',
-  },
-});
-
-export const updateUserMutation = () => ({
-  mutationFn: updateUser,
-  meta: {
-    successMessage: 'User updated successfully!',
-    errorMessage: 'Failed to update user.',
-  },
-});
-
-export const deleteUserMutation = () => ({
-  mutationFn: deleteUser,
-  meta: {
-    successMessage: 'User deleted successfully!',
-    errorMessage: 'Failed to delete user.',
+    errorMessage: 'Logout failed. Please try again.',
   },
 });
