@@ -4,17 +4,17 @@ import { I18nextProvider } from 'react-i18next';
 import { BrowserRouter } from 'react-router';
 
 import i18n from './config/i18n';
-// import { ErrorBoundary } from './error/ErrorBoundary';
+import { ErrorBoundary } from './error/ErrorBoundary';
 import AppRoutes from './routes';
 
 const App: React.FC = () => (
   <I18nextProvider i18n={i18n}>
     <BrowserRouter>
-      {/* <ErrorBoundary> */}
-      <ThemeProvider>
-        <AppRoutes />
-      </ThemeProvider>
-      {/* </ErrorBoundary> */}
+      <ErrorBoundary>
+        <ThemeProvider>
+          <AppRoutes />
+        </ThemeProvider>
+      </ErrorBoundary>
     </BrowserRouter>
   </I18nextProvider>
 );
