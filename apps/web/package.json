@@ -6,6 +6,7 @@
   "scripts": {
     "build": "vite build",
     "bundle": "pnpm build && pnpm zip",
+    "clean": "rm -rf dist node_modules .turbo",
     "dev": "vite",
     "format": "prettier --write .",
     "lint": "eslint .",
@@ -38,7 +39,7 @@
     "@types/node-fetch": "^2.6.12",
     "@types/react": "18.3.12",
     "@types/react-dom": "18.2.7",
-    "@vitejs/plugin-react": "^4.3.4",
+    "@vitejs/plugin-react-swc": "^3.7.2",
     "@workspace/eslint-config": "workspace:*",
     "@workspace/typescript-config": "workspace:*",
     "typescript": "^5.7.3",
