@@ -1,4 +1,5 @@
 import { useToast } from '@workspace/ui/hooks/use-toast';
+// biome-ignore lint/style/useImportType: This import is necessary for the ErrorBoundary component
 import React, { Component, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router';
 
@@ -69,11 +70,12 @@ class ErrorBoundaryClass extends Component<React.PropsWithChildren<ErrorBoundary
 
 // Functional wrapper to provide `navigate` and `location` props
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export const ErrorBoundary: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
+export const ErrorBoundary: React.FC<React.PropsWithChildren<Record<string, unknown>>> = ({ children }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const { toast } = useToast();
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: This effect should only run on navigation
   useEffect(() => {
     // Reset scroll position or perform other tasks on navigation
     window.scrollTo(0, 0);

@@ -1,4 +1,4 @@
-import { QueryClient, QueryKey } from '@tanstack/react-query';
+import { QueryClient, type QueryKey } from '@tanstack/react-query';
 
 import { RequestError } from '../error';
 
@@ -28,7 +28,7 @@ export const queryClient = new QueryClient({
       },
       refetchInterval: false,
       refetchOnWindowFocus: false,
-      staleTime: Infinity,
+      staleTime: Number.POSITIVE_INFINITY,
       retry: false,
     },
     mutations: {

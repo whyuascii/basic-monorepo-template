@@ -13,6 +13,7 @@ import { initializeOpenTelemetry } from './telemetry';
 // start tracing onMount App.tsx will trace only users interactions
 initializeOpenTelemetry();
 
+// biome-ignore lint/style/noNonNullAssertion: ReactDOM.createRoot is not yet typed
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>

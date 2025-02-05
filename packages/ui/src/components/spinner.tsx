@@ -1,6 +1,6 @@
-import { cva, VariantProps } from 'class-variance-authority';
+import { type VariantProps, cva } from 'class-variance-authority';
 import { Loader2 } from 'lucide-react';
-import React from 'react';
+import type React from 'react';
 
 import { cn } from '../lib/utils';
 
@@ -48,7 +48,7 @@ interface SpinnerProps extends VariantProps<typeof spinnerVariants>, VariantProp
 
 export function Spinner({ size, show, direction, color, children, className, label = 'Loading' }: SpinnerProps) {
   return (
-    <div className={cn(spinnerVariants({ show, direction }), className)} role="status" aria-live="polite">
+    <div className={cn(spinnerVariants({ show, direction }), className)} role="alert" aria-live="polite">
       <Loader2 className={cn(loaderVariants({ size, color }))} aria-hidden="true" />
       {children && <span className="text-sm text-muted">{children}</span>}
       {label && <span className="sr-only">{label}</span>}

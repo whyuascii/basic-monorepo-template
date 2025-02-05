@@ -6,7 +6,7 @@ export class RequestError extends CustomError {
    * @param context - The context or location where the error occurred.
    * @param friendlyMessage - User-facing message (default: "Oops, something went wrong.").
    */
-  constructor(message: string, context: string, friendlyMessage: string = 'Oops, something went wrong.') {
+  constructor(message: string, context: string, friendlyMessage = 'Oops, something went wrong.') {
     super(message, context, friendlyMessage);
     this.name = 'RequestError';
     this.context = context;

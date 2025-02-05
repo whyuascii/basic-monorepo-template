@@ -1,0 +1,49 @@
+{
+  "name": "docs",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "storybook dev -p 6006",
+    "build": "storybook build --docs",
+    "preview-storybook": "serve storybook-static",
+    "clean": "rm -rf .turbo node_modules",
+    "lint": "eslint ./stories/*.stories.tsx --max-warnings 0"
+  },
+  "dependencies": {
+    "@workspace/ui": "workspace:*",
+    "clsx": "^2.1.1",
+    "cmdk": "^1.0.4",
+    "date-fns": "^4.1.0",
+    "embla-carousel-react": "^8.5.1",
+    "input-otp": "^1.4.2",
+    "lucide-react": "0.469.0",
+    "react": "^18.3.1",
+    "react-day-picker": "9.5.0",
+    "react-dom": "^18.3.1",
+    "react-hook-form": "^7.54.2",
+    "react-resizable-panels": "^2.1.7",
+    "recharts": "^2.15.0",
+    "sonner": "^1.7.1"
+  },
+  "devDependencies": {
+    "@storybook/addon-actions": "^8.5.1",
+    "@storybook/addon-essentials": "^8.5.1",
+    "@storybook/addon-links": "^8.5.1",
+    "@storybook/react": "^8.5.1",
+    "@storybook/react-vite": "^8.5.1",
+    "@types/node-fetch": "^2.6.12",
+    "@types/react": "18.3.12",
+    "@types/react-dom": "18.2.7",
+    "@types/recharts": "^1.8.29",
+    "@vitejs/plugin-react": "^4.3.4",
+    "@vitejs/plugin-react-swc": "^3.7.2",
+    "@workspace/eslint-config": "workspace:*",
+    "@workspace/typescript-config": "workspace:*",
+    "eslint": "^9.18.0",
+    "serve": "^14.2.4",
+    "storybook": "^8.5.1",
+    "typescript": "^5.7.3",
+    "vite": "^6.0.7"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "editor.formatOnSave": true,
+  "[markdown]": {
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "other": "on",
+      "strings": "off"
+    }
+  },
+  "[typescript]": {
+    "editor.colorDecorators": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "colorize.languages": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 6000,
+  "files.exclude": {
+    "**/.DS_Store": true,
+    "**/.git": true,
+    "**/.hg": true,
+    "**/.svn": true,
+    "**/CVS": true,
+    "**/__MACOSX": true
+  },
+  "files.trimTrailingWhitespace": true,
+  "gitlens.advanced.messages": {
+    "suppressFileNotUnderSourceControlWarning": true,
+    "suppressGitMissingWarning": true
+  },
+  "gitlens.blame.ignoreWhitespace": true,
+  "gitlens.codeLens.scopes": ["document", "containers", "blocks"],
+  "gitlens.keymap": "alternate",
+  "gitlens.views.repositories.files.layout": "list",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "typescript.implementationsCodeLens.enabled": true,
+  "typescript.inlayHints.enumMemberValues.enabled": true,
+  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "typescript.inlayHints.parameterNames.enabled": "literals",
+  "typescript.inlayHints.parameterTypes.enabled": true,
+  "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
+  "typescript.inlayHints.variableTypes.enabled": true,
+  "typescript.locale": "en",
+  "typescript.preferences.importModuleSpecifierEnding": "minimal",
+  "typescript.preferences.quoteStyle": "single",
+  "typescript.suggest.completeFunctionCalls": true,
+  "typescript.tsserver.log": "off",
+  "workbench.editor.highlightModifiedTabs": true, //highlights all unsaved work
+  "files.trimFinalNewlines": true, //Trim extra newlines at the end of the file
+  "search.exclude": {
+    //when searching for a file exclude directory
+    "**/node_modules": true,
+    "package-lock.json": true
+  },
+  "javascript.preferences.quoteStyle": "single", // change double to single quotes in javascript,
+  "editor.rulers": [120],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.wrappingIndent": "same",
+  "editor.wordWrapColumn": 120,
+  "cSpell.words": ["shadecn"]
+}
