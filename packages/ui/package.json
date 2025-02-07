@@ -78,12 +78,15 @@
     "prettier": "^3.4.2"
   },
   "exports": {
-    "./globals.css": "./src/styles/globals.css",
-    "./postcss.config": "./postcss.config.mjs",
-    "./tailwind.config": "./tailwind.config.js",
-    "./lib/*": "./src/lib/*.ts",
+    "./atoms/*": "./src/atoms/*.tsx",
     "./components/*": "./src/components/*.tsx",
+    "./globals.css": "./src/styles/globals.css",
     "./hooks/*": "./src/hooks/*.ts",
-    "./layouts/*": "./src/layouts/*.tsx"
+    "./layouts/*": "./src/layouts/*.tsx",
+    "./lib/*": "./src/lib/*.ts",
+    "./molecules/*": "./src/molecules/*.tsx",
+    "./organisms/*": "./src/organisms/*.tsx",
+    "./postcss.config": "./postcss.config.mjs",
+    "./tailwind.config": "./tailwind.config.js"
   }
 }

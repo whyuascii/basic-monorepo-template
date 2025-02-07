@@ -12,11 +12,13 @@
   },
   "iconLibrary": "lucide",
   "aliases": {
+    "atoms": "@workspace/ui/atoms",
     "components": "@workspace/ui/components",
-    "utils": "@workspace/ui/lib/utils",
     "hooks": "@workspace/ui/hooks",
+    "layouts": "@workspace/ui/layouts",
     "lib": "@workspace/ui/lib",
-    "ui": "@workspace/ui/components",
-    "layouts": "@workspace/ui/layouts"
+    "molecules": "@workspace/ui/molecules",
+    "organisms": "@workspace/ui/organisms",
+    "utils": "@workspace/ui/lib/utils"
   }
 }

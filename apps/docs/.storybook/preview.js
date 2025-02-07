@@ -11,10 +11,12 @@ const preview = {
     },
     options: {
       storySort: {
-        order: ['Welcome', '*'],
+        order: ['Welcome', 'Getting Started', 'Components', 'Atoms', 'Molecules', 'Organisms', '*'],
       },
     },
   },
+
+  tags: ['autodocs'],
 };
 
 export default preview;

@@ -1,0 +1,71 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Getting Started" />
+
+# Getting Started 🚀
+
+This guide will help you quickly integrate and use components from our UI library.
+
+## 📦 Installation
+
+To install the UI package, use:
+
+pnpm add @workspace/ui
+
+Or, with npm:
+
+```
+npm install @workspace/ui
+```
+
+## 🔨 Usage
+
+Import a component into your project:
+
+```
+import { Button } from '@workspace/ui/components';
+
+export default function App() {
+  return <Button>Click Me</Button>;
+}
+```
+
+## 🎛 Storybook Addons
+
+We leverage several Storybook addons to enhance the development experience:
+
+- **@storybook/addon-a11y** → Ensures accessibility compliance.
+- **@storybook/addon-viewport** → Helps test responsiveness.
+- **@storybook/addon-designs** → Displays linked Figma files.
+- **@storybook/addon-interactions** → Simulates user interactions.
+- **@storybook/addon-jest** → Displays Jest test results.
+- **@storybook/test** → Provides utilities for testing inside play functions.
+
+## ✅ Testing Components
+
+To test components using **@storybook/test**, you can create interactive tests within your stories:
+
+```
+export const Demo = {
+  play: async ({ args, canvasElement }) => {
+    const canvas = within(canvasElement);
+    await userEvent.click(canvas.getByRole('button'));
+    await expect(args.onClick).toHaveBeenCalled();
+  },
+};
+```
+
+You can view the results in the **Interactions** panel in Storybook.
+
+## 🛠 Storybook Features
+
+- **Live Component Previews** → Interact with components in real time.
+- **Design & Documentation** → View Figma designs and component guidelines.
+- **Accessibility Testing** → Ensure your UI is usable for all users.
+- **Responsive Testing** → See how components behave on different screen sizes.
+
+## 🔗 Resources
+
+- 📖 [UI Library Documentation](https://your-docs-url.com)
+- 🎨 [Figma Design System](https://figma.com/file/your-figma-url)
+- 🏗 [Storybook GitHub Repo](https://github.com/your-repo)
