@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ModeToggle } from '@workspace/ui/atoms/mode-toggle';
+import { ModeToggle } from '@workspace/ui/organisms/mode-toggle';
 
 // Storybook metadata following Atomic Design
 const meta: Meta<typeof ModeToggle> = {

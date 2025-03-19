@@ -15,12 +15,13 @@ const AlertDialogOverlay = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Overlay>
 >(({ className, ...props }, ref) => (
   <AlertDialogPrimitive.Overlay
+    ref={ref}
     className={cn(
-      'fixed inset-0 z-50 bg-black/90 backdrop-blur-md transition-opacity data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out',
+      'fixed inset-0 z-50 bg-black/70 backdrop-blur-md transition-opacity',
+      'data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out',
       className,
     )}
     {...props}
-    ref={ref}
   />
 ));
 AlertDialogOverlay.displayName = AlertDialogPrimitive.Overlay.displayName;
@@ -34,7 +35,9 @@ const AlertDialogContent = React.forwardRef<
     <AlertDialogPrimitive.Content
       ref={ref}
       className={cn(
-        'fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border-2 border-black bg-background p-6 shadow-[8px_8px_0px_#000] rounded-[8px] transition-all duration-200 hover:shadow-[10px_10px_0px_#000] data-[state=open]:animate-zoom-in data-[state=closed]:animate-zoom-out',
+        'fixed left-1/2 top-1/2 z-50 w-full max-w-md -translate-x-1/2 -translate-y-1/2 rounded-lg border border-border bg-background shadow-xl transition-all duration-200',
+        'data-[state=open]:animate-zoom-in data-[state=closed]:animate-zoom-out',
+        'p-6 sm:p-8',
         className,
       )}
       {...props}
@@ -59,7 +62,7 @@ const AlertDialogTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <AlertDialogPrimitive.Title
     ref={ref}
-    className={cn('text-lg font-bold uppercase tracking-widest text-primary border-b-2 border-black pb-2', className)}
+    className={cn('text-lg font-semibold text-primary border-b border-border pb-2', className)}
     {...props}
   />
 ));
@@ -85,7 +88,7 @@ const AlertDialogAction = React.forwardRef<
     ref={ref}
     className={cn(
       buttonVariants(),
-      'uppercase tracking-wide font-bold transition-transform active:translate-y-[2px]',
+      'uppercase tracking-wide font-semibold transition-transform active:scale-95',
       className,
     )}
     {...props}
@@ -101,7 +104,7 @@ const AlertDialogCancel = React.forwardRef<
     ref={ref}
     className={cn(
       buttonVariants({ variant: 'outline' }),
-      'mt-2 sm:mt-0 uppercase tracking-wide font-bold transition-transform active:translate-y-[2px]',
+      'mt-2 sm:mt-0 uppercase tracking-wide font-semibold transition-transform active:scale-95',
       className,
     )}
     {...props}

@@ -8,7 +8,8 @@ const Pagination = ({ className, ...props }: React.ComponentProps<'nav'>) => (
   <nav
     aria-label="pagination"
     className={cn(
-      'mx-auto flex w-full justify-center border-2 border-black rounded-md bg-secondary p-2 shadow-[4px_4px_0px_#000] transition-all hover:shadow-[6px_6px_0px_#000] active:shadow-none',
+      'mx-auto flex w-full justify-center rounded-md border-2 border-black bg-secondary p-2 shadow-md transition-all',
+      'hover:shadow-lg hover:-translate-y-[1px] active:shadow-none',
       className,
     )}
     {...props}
@@ -26,7 +27,7 @@ PaginationContent.displayName = 'PaginationContent';
 const PaginationItem = React.forwardRef<HTMLLIElement, React.ComponentProps<'li'>>(({ className, ...props }, ref) => (
   <li
     ref={ref}
-    className={cn('border-2 border-black rounded-md p-1 bg-primary shadow-[3px_3px_0px_#000]', className)}
+    className={cn('rounded-md border-2 border-black bg-primary p-1 shadow-md transition-all', className)}
     {...props}
   />
 ));
@@ -45,7 +46,7 @@ const PaginationLink = ({ className, isActive, size = 'icon', ...props }: Pagina
         variant: isActive ? 'outline' : 'ghost',
         size,
       }),
-      'border-2 border-black shadow-[3px_3px_0px_#000] transition-all hover:shadow-[5px_5px_0px_#000] active:shadow-none',
+      'border-2 border-black shadow-md transition-all hover:shadow-lg hover:-translate-y-[1px] active:shadow-none',
       className,
     )}
     {...props}
@@ -58,7 +59,8 @@ const PaginationPrevious = ({ className, ...props }: React.ComponentProps<typeof
     aria-label="Go to previous page"
     size="default"
     className={cn(
-      'gap-1 pl-2.5 flex items-center border-2 border-black bg-background px-3 py-2 rounded-md shadow-[3px_3px_0px_#000] transition-all hover:shadow-[5px_5px_0px_#000] active:shadow-none',
+      'flex items-center gap-1 rounded-md border-2 border-black bg-background px-3 py-2 shadow-md transition-all',
+      'hover:shadow-lg hover:-translate-y-[1px] active:shadow-none',
       className,
     )}
     {...props}
@@ -74,7 +76,8 @@ const PaginationNext = ({ className, ...props }: React.ComponentProps<typeof Pag
     aria-label="Go to next page"
     size="default"
     className={cn(
-      'gap-1 pr-2.5 flex items-center border-2 border-black bg-background px-3 py-2 rounded-md shadow-[3px_3px_0px_#000] transition-all hover:shadow-[5px_5px_0px_#000] active:shadow-none',
+      'flex items-center gap-1 rounded-md border-2 border-black bg-background px-3 py-2 shadow-md transition-all',
+      'hover:shadow-lg hover:-translate-y-[1px] active:shadow-none',
       className,
     )}
     {...props}
@@ -89,7 +92,8 @@ const PaginationEllipsis = ({ className, ...props }: React.ComponentProps<'span'
   <span
     aria-hidden
     className={cn(
-      'flex h-9 w-9 items-center justify-center border-2 border-black rounded-md bg-muted shadow-[3px_3px_0px_#000] transition-all hover:shadow-[5px_5px_0px_#000] active:shadow-none',
+      'flex h-9 w-9 items-center justify-center rounded-md border-2 border-black bg-muted shadow-md transition-all',
+      'hover:shadow-lg hover:-translate-y-[1px] active:shadow-none',
       className,
     )}
     {...props}

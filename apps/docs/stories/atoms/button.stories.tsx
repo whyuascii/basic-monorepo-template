@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { expect, within } from '@storybook/test';
 import { Button } from '@workspace/ui/atoms/button';
 
-// Storybook metadata with Atomic Design structure
 const meta: Meta<typeof Button> = {
   title: 'Atoms/Button',
   component: Button,
@@ -38,15 +38,28 @@ const meta: Meta<typeof Button> = {
     docs: {
       description: {
         component: `
-### Button Component (Atom)
+## 🔘 Button (Atom)
 
-The \`Button\` component is a fundamental UI element that enables user interaction.
+The **\`Button\`** component is a **fundamental UI element** that enables user interactions.
 
-#### Atomic Design Classification:
+### 🔹 Structure:
+1️⃣ **\`Button\`** → Interactive element with **multiple styles and sizes**.
 
-- **Atom**: The smallest building block of a UI component library.
-      `,
+### 🔹 Features:
+✅ **Multiple Variants** → Default, Destructive, Outline, Secondary, Ghost, Link.
+✅ **Customizable Sizes** → Small, Default, Large, Icon.
+✅ **Accessible** → Supports keyboard navigation and ARIA attributes.
+✅ **Dark Mode Support** → Works across **light and dark themes**.
+✅ **Hover, Focus, and Disabled States** → Ensures intuitive interactions.
+`,
       },
+    },
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/KbZngeaWlthA7T7Xbn37Ib/Myna-UI---TailwindCSS-%26-shadcn%2Fui-%26-Radix-Premium-UI-Kit-(Community)?node-id=2672-1548&t=hqtB3yCRobk4iAjA-4',
+    },
+    controls: {
+      exclude: ['children'],
     },
   },
 };
@@ -54,55 +67,115 @@ The \`Button\` component is a fundamental UI element that enables user interacti
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-// Default button (basic usage)
 export const Default: Story = {
   args: {
     variant: 'default',
     size: 'default',
     children: 'Click Me',
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const button = canvas.getByText('Click Me');
+    expect(button).toBeVisible();
+  },
 };
 
-// Variants Showcase (atoms)
-export const Variants = () => (
-  <div className="space-y-2">
-    <Button variant="default">Default</Button>
-    <Button variant="destructive">Destructive</Button>
-    <Button variant="outline">Outline</Button>
-    <Button variant="secondary">Secondary</Button>
-    <Button variant="ghost">Ghost</Button>
-    <Button variant="link">Link</Button>
-  </div>
-);
+export const Destructive: Story = {
+  args: {
+    variant: 'destructive',
+    children: 'Delete',
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByText('Delete')).toBeVisible();
+  },
+};
 
-// Sizes Showcase (atoms)
-export const Sizes = () => (
-  <div className="space-y-2">
-    <Button size="sm">Small</Button>
-    <Button size="default">Default</Button>
-    <Button size="lg">Large</Button>
-    <Button size="icon">🔍</Button>
-  </div>
-);
+export const Outline: Story = {
+  args: {
+    variant: 'outline',
+    children: 'Outline Button',
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByText('Outline Button')).toBeVisible();
+  },
+};
 
-// Disabled state (evaluating accessibility)
+export const Secondary: Story = {
+  args: {
+    variant: 'secondary',
+    children: 'Secondary Button',
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByText('Secondary Button')).toBeVisible();
+  },
+};
+
+export const Ghost: Story = {
+  args: {
+    variant: 'ghost',
+    children: 'Ghost Button',
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByText('Ghost Button')).toBeVisible();
+  },
+};
+
+export const Link: Story = {
+  args: {
+    variant: 'link',
+    children: 'Learn More',
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByText('Learn More')).toBeVisible();
+  },
+};
+
+export const Small: Story = {
+  args: {
+    size: 'sm',
+    children: 'Small Button',
+  },
+};
+
+export const Large: Story = {
+  args: {
+    size: 'lg',
+    children: 'Large Button',
+  },
+};
+
+export const Icon: Story = {
+  args: {
+    size: 'icon',
+    children: '🔍',
+  },
+};
+
 export const Disabled: Story = {
   args: {
     children: 'Disabled',
     disabled: true,
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const button = canvas.getByText('Disabled');
+    expect(button).toHaveAttribute('disabled');
+  },
 };
 
-// Button as a child (molecule usage example)
 export const AsChild: Story = {
   args: {
     asChild: true,
-    // biome-ignore lint/a11y/useValidAnchor: just a storybook example
+    // biome-ignore lint/a11y/useValidAnchor: storybook example
     children: <a href="#">Button as Link</a>,
   },
 };
 
-// Testing hover and focus states for intuitiveness
 export const InteractiveStates = () => (
   <div className="space-y-2">
     <Button variant="default">Hover Me</Button>
@@ -114,3 +187,15 @@ export const InteractiveStates = () => (
     </Button>
   </div>
 );
+
+export const DarkMode: Story = {
+  render: () => (
+    <div className="dark bg-gray-900 p-4 rounded-lg">
+      <Button className="bg-gray-800 text-white border-gray-700">Dark Mode Button</Button>
+    </div>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByText('Dark Mode Button')).toBeVisible();
+  },
+};

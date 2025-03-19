@@ -58,10 +58,7 @@ export const Default: Story = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const avatarImg = canvas.getByRole('img');
-
-    // Ensure avatar image is visible
-    expect(avatarImg).toBeVisible();
+    expect(canvas.getByRole('img')).toBeVisible();
   },
 };
 
@@ -131,7 +128,6 @@ export const AccessibilityTest: Story = {
     const canvas = within(canvasElement);
     const avatarImg = canvas.getByRole('img');
 
-    // Validate accessibility attributes
     expect(avatarImg).toHaveAttribute('alt', 'Accessible Avatar');
   },
 };

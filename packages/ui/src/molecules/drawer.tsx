@@ -19,7 +19,7 @@ const DrawerOverlay = React.forwardRef<
   <DrawerPrimitive.Overlay
     ref={ref}
     className={cn(
-      'fixed inset-0 z-50 bg-black/80 backdrop-blur-sm transition-opacity duration-200 data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out',
+      'fixed inset-0 z-50 bg-black/70 backdrop-blur-md transition-opacity duration-300 ease-out data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out',
       className,
     )}
     {...props}
@@ -36,12 +36,13 @@ const DrawerContent = React.forwardRef<
     <DrawerPrimitive.Content
       ref={ref}
       className={cn(
-        'fixed inset-x-0 bottom-0 z-50 mt-24 flex h-auto flex-col border-2 border-black rounded-t-[6px] bg-background p-4 shadow-[4px_4px_0px_#000] transition-all hover:shadow-[6px_6px_0px_#000] data-[state=open]:animate-slide-in-from-bottom data-[state=closed]:animate-slide-out-to-bottom',
+        'fixed inset-x-0 bottom-0 z-50 mt-24 flex h-auto max-h-[90vh] flex-col rounded-t-lg border border-border bg-popover p-5 shadow-lg transition-transform duration-300 ease-out data-[state=open]:animate-slide-in-from-bottom data-[state=closed]:animate-slide-out-to-bottom',
         className,
       )}
       {...props}
     >
-      <div className="mx-auto mt-2 h-2 w-[100px] rounded-full bg-muted" />
+      {/* Drawer Handle */}
+      <div className="mx-auto mt-1 h-2 w-12 rounded-full bg-muted/60" />
       {children}
     </DrawerPrimitive.Content>
   </DrawerPortal>
@@ -49,12 +50,12 @@ const DrawerContent = React.forwardRef<
 DrawerContent.displayName = 'DrawerContent';
 
 const DrawerHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className={cn('grid gap-1.5 p-4 text-center sm:text-left', className)} {...props} />
+  <div className={cn('grid gap-1.5 px-4 pb-3 text-center sm:text-left', className)} {...props} />
 );
 DrawerHeader.displayName = 'DrawerHeader';
 
 const DrawerFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className={cn('mt-auto flex flex-col gap-2 p-4', className)} {...props} />
+  <div className={cn('mt-auto flex flex-col gap-2 px-4 pb-4', className)} {...props} />
 );
 DrawerFooter.displayName = 'DrawerFooter';
 
@@ -64,7 +65,7 @@ const DrawerTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <DrawerPrimitive.Title
     ref={ref}
-    className={cn('text-lg font-bold uppercase tracking-widest text-black', className)}
+    className={cn('text-lg font-semibold tracking-wide text-foreground', className)}
     {...props}
   />
 ));
@@ -74,11 +75,7 @@ const DrawerDescription = React.forwardRef<
   React.ElementRef<typeof DrawerPrimitive.Description>,
   React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Description>
 >(({ className, ...props }, ref) => (
-  <DrawerPrimitive.Description
-    ref={ref}
-    className={cn('text-sm font-bold text-muted-foreground uppercase tracking-wide', className)}
-    {...props}
-  />
+  <DrawerPrimitive.Description ref={ref} className={cn('text-sm text-muted-foreground', className)} {...props} />
 ));
 DrawerDescription.displayName = DrawerPrimitive.Description.displayName;
 

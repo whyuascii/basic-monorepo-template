@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { expect, within } from '@storybook/test';
 import Container from '@workspace/ui/atoms/container';
 
-// Storybook metadata with Atomic Design structure
 const meta: Meta<typeof Container> = {
   title: 'Atoms/Container',
   component: Container,
@@ -16,15 +16,28 @@ const meta: Meta<typeof Container> = {
     docs: {
       description: {
         component: `
-### Container Component (Atom)
+## 📦 Container (Atom)
 
-The \`Container\` component provides a responsive layout wrapper to ensure consistent spacing and alignment across the application.
+The **\`Container\`** component provides a **responsive layout wrapper** to ensure **consistent spacing and alignment**.
 
-#### Atomic Design Classification:
+### 🔹 Structure:
+1️⃣ **\`Container\`** → Wraps content inside a **centered, constrained layout**.
 
-- **Atom**: A fundamental component that serves as a layout constraint.
-        `,
+### 🔹 Features:
+✅ **Responsive Layout** → Adapts to different screen sizes.\n
+✅ **Consistent Spacing** → Ensures proper padding and alignment.\n
+✅ **Supports Dynamic Content** → Can wrap various UI elements.\n
+✅ **Customizable Styling** → Tailwind and class overrides supported.\n
+✅ **Dark Mode Support** → Adjusts styles for dark-themed applications.\n
+`,
       },
+    },
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/KbZngeaWlthA7T7Xbn37Ib/Myna-UI---TailwindCSS-%26-shadcn%2Fui-%26-Radix-Premium-UI-Kit-(Community)?node-id=2672-1548&t=hqtB3yCRobk4iAjA-4',
+    },
+    controls: {
+      exclude: ['children'],
     },
   },
 };
@@ -32,15 +45,17 @@ The \`Container\` component provides a responsive layout wrapper to ensure consi
 export default meta;
 type Story = StoryObj<typeof Container>;
 
-// Default container example
 export const Default: Story = {
   args: {
     children: 'This is a container with centered content.',
   },
   render: (args) => <Container {...args} />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByText('This is a container with centered content.')).toBeVisible();
+  },
 };
 
-// Container with long content
 export const WithLongContent: Story = {
   args: {
     children: (
@@ -53,17 +68,23 @@ export const WithLongContent: Story = {
     ),
   },
   render: (args) => <Container {...args} />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByText(/Lorem ipsum/)).toBeVisible();
+  },
 };
 
-// Custom styled container
 export const CustomStyled: Story = {
   args: {
     children: 'This container has custom styles applied.',
   },
   render: (args) => <Container {...args} />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByText('This container has custom styles applied.')).toBeVisible();
+  },
 };
 
-// Container with dynamic content
 export const DynamicContent: Story = {
   args: {
     children: (
@@ -75,9 +96,14 @@ export const DynamicContent: Story = {
     ),
   },
   render: (args) => <Container {...args} />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByText('Responsive Layout')).toBeVisible();
+    expect(canvas.getByText('Consistent Spacing')).toBeVisible();
+    expect(canvas.getByText('Centering Content')).toBeVisible();
+  },
 };
 
-// Accessibility test case
 export const AccessibilityTest: Story = {
   args: {
     children: (
@@ -87,4 +113,22 @@ export const AccessibilityTest: Story = {
     ),
   },
   render: (args) => <Container {...args} />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const content = canvas.getByText('Accessible Content');
+    expect(content).toBeVisible();
+    expect(content).toHaveAttribute('aria-label', 'Accessible container');
+  },
+};
+
+export const DarkMode: Story = {
+  render: () => (
+    <div className="dark bg-gray-900 p-4 rounded-lg">
+      <Container>This container is optimized for dark mode.</Container>
+    </div>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByText('This container is optimized for dark mode.')).toBeVisible();
+  },
 };

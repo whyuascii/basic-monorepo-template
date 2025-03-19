@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { expect, within } from '@storybook/test';
 import Image from '@workspace/ui/atoms/image';
 
-// Storybook metadata with Atomic Design structure
 const meta: Meta<typeof Image> = {
   title: 'Atoms/Image',
   component: Image,
@@ -35,15 +35,31 @@ const meta: Meta<typeof Image> = {
     docs: {
       description: {
         component: `
-### Image Component (Atom)
+## 🖼️ Image (Atom)
 
-The \`Image\` component is a simple wrapper around the HTML \`<img>\` tag with additional styling.
+The **\`Image\`** component is a **wrapper** around the standard **\`<img>\` tag**, providing additional styling and responsive support.
 
-#### Atomic Design Classification:
+### 🔹 Structure:
+1️⃣ **\`src\`** → Defines the **image source**. \n
+2️⃣ **\`alt\`** → Provides **alternative text** for accessibility. \n
+3️⃣ **\`className\`** → Allows **custom styling** via Tailwind or CSS. \n
+4️⃣ **\`width & height\`** → Defines the **image dimensions**. \n
 
-- **Atom**: A fundamental UI element used for displaying images.
- `,
+### 🔹 Features:
+✅ **Responsive Support** → Adapts to various screen sizes.  \n
+✅ **Customizable Styling** → Supports additional **CSS classes**.  \n
+✅ **Accessibility Compliant** → Includes **alt text** for screen readers.  \n
+✅ **Supports Circular & Rounded Shapes** → Can be **styled as a circle**.  \n
+✅ **Optimized Performance** → Uses **lazy loading & smooth transitions**.  \n
+`,
       },
+    },
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/KbZngeaWlthA7T7Xbn37Ib/Myna-UI---TailwindCSS-%26-shadcn%2Fui-%26-Radix-Premium-UI-Kit-(Community)?node-id=2672-1548&t=hqtB3yCRobk4iAjA-4',
+    },
+    controls: {
+      exclude: ['children'],
     },
   },
 };
@@ -51,40 +67,104 @@ The \`Image\` component is a simple wrapper around the HTML \`<img>\` tag with a
 export default meta;
 type Story = StoryObj<typeof Image>;
 
-// Default image example
 export const Default: Story = {
-  render: () => <Image src="https://placehold.co/150" alt="Default Image" />,
+  args: {
+    src: 'https://placehold.co/150',
+    alt: 'Default Image',
+  },
+  render: (args) => <Image {...args} />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByRole('img')).toBeVisible();
+  },
 };
 
-// Large image example
 export const LargeImage: Story = {
-  render: () => <Image src="https://placehold.co/600" alt="Large Image" width={600} height={400} />,
+  args: {
+    src: 'https://placehold.co/600',
+    alt: 'Large Image',
+    width: 600,
+    height: 400,
+  },
+  render: (args) => <Image {...args} />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByRole('img')).toBeVisible();
+  },
 };
 
-// Image with custom styling
 export const CustomStyled: Story = {
   args: {
+    src: 'https://placehold.co/300',
+    alt: 'Custom Styled Image',
     className: 'border border-gray-400 shadow-lg rounded-lg',
   },
-  render: (args) => <Image src="https://placehold.co/300" alt="Custom Styled Image" {...args} />,
+  render: (args) => <Image {...args} />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByRole('img')).toBeVisible();
+  },
 };
 
-// Image with missing alt text (Accessibility warning)
 export const NoAltText: Story = {
-  render: () => <Image src="https://placehold.co/200" alt="" />,
+  args: {
+    src: 'https://placehold.co/200',
+    alt: '',
+  },
+  render: (args) => <Image {...args} />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByRole('img')).toBeVisible();
+  },
 };
 
-// Circular image example
 export const CircularImage: Story = {
-  render: () => <Image src="https://placehold.co/150" alt="Circular Image" className="rounded-full" />,
+  args: {
+    src: 'https://placehold.co/150',
+    alt: 'Circular Image',
+    className: 'rounded-full',
+  },
+  render: (args) => <Image {...args} />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByRole('img')).toBeVisible();
+  },
 };
 
-// Responsive image example
 export const ResponsiveImage: Story = {
-  render: () => <Image src="https://placehold.co/800x400" alt="Responsive Image" className="w-full h-auto" />,
+  args: {
+    src: 'https://placehold.co/800x400',
+    alt: 'Responsive Image',
+    className: 'w-full h-auto',
+  },
+  render: (args) => <Image {...args} />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByRole('img')).toBeVisible();
+  },
 };
 
-// Accessibility test for images
 export const AccessibilityTest: Story = {
-  render: () => <Image src="https://placehold.co/250" alt="Accessible Image Example" />,
+  args: {
+    src: 'https://placehold.co/250',
+    alt: 'Accessible Image Example',
+  },
+  render: (args) => <Image {...args} />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const img = canvas.getByRole('img');
+    expect(img).toHaveAttribute('alt', 'Accessible Image Example');
+  },
+};
+
+export const DarkMode: Story = {
+  render: () => (
+    <div className="dark bg-gray-900 p-4 rounded-lg">
+      <Image src="https://placehold.co/250" alt="Dark Mode Image" className="border-gray-700 bg-gray-800" />
+    </div>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByRole('img')).toBeVisible();
+  },
 };

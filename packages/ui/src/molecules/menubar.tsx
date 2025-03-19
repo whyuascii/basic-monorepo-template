@@ -17,7 +17,8 @@ const Menubar = React.forwardRef<
   <MenubarPrimitive.Root
     ref={ref}
     className={cn(
-      'flex h-10 items-center space-x-2 rounded-lg border-2 border-black bg-secondary px-3 py-1 shadow-[4px_4px_0px_#000] transition-all hover:shadow-[6px_6px_0px_#000] active:shadow-none',
+      'flex h-10 items-center space-x-2 rounded-lg border-2 border-black bg-secondary px-3 py-1 shadow-md transition-all',
+      'hover:shadow-lg hover:-translate-y-[1px] active:shadow-none',
       className,
     )}
     {...props}
@@ -32,7 +33,9 @@ const MenubarTrigger = React.forwardRef<
   <MenubarPrimitive.Trigger
     ref={ref}
     className={cn(
-      'flex cursor-pointer select-none items-center rounded-md px-4 py-2 text-sm font-bold uppercase tracking-wide text-foreground transition-all hover:bg-primary hover:text-primary-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2',
+      'flex cursor-pointer select-none items-center rounded-md px-4 py-2 text-sm font-bold uppercase tracking-wide',
+      'text-foreground transition-all hover:bg-primary hover:text-primary-foreground',
+      'focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2',
       className,
     )}
     {...props}
@@ -42,14 +45,13 @@ MenubarTrigger.displayName = MenubarPrimitive.Trigger.displayName;
 
 const MenubarSubTrigger = React.forwardRef<
   React.ElementRef<typeof MenubarPrimitive.SubTrigger>,
-  React.ComponentPropsWithoutRef<typeof MenubarPrimitive.SubTrigger> & {
-    inset?: boolean;
-  }
+  React.ComponentPropsWithoutRef<typeof MenubarPrimitive.SubTrigger> & { inset?: boolean }
 >(({ className, inset, children, ...props }, ref) => (
   <MenubarPrimitive.SubTrigger
     ref={ref}
     className={cn(
-      'flex cursor-pointer select-none items-center rounded-md px-4 py-2 text-sm font-medium transition-all hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+      'flex cursor-pointer select-none items-center rounded-md px-4 py-2 text-sm font-medium transition-all',
+      'hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
       inset && 'pl-10',
       className,
     )}
@@ -68,7 +70,8 @@ const MenubarSubContent = React.forwardRef<
   <MenubarPrimitive.SubContent
     ref={ref}
     className={cn(
-      'z-50 min-w-[10rem] rounded-md border border-black bg-popover p-2 shadow-lg transition-all hover:shadow-[6px_6px_0px_#000]',
+      'z-50 min-w-[10rem] rounded-md border-2 border-black bg-popover p-2 shadow-md transition-all',
+      'hover:shadow-lg',
       className,
     )}
     {...props}
@@ -84,7 +87,7 @@ const MenubarContent = React.forwardRef<
     <MenubarPrimitive.Content
       ref={ref}
       className={cn(
-        'z-50 min-w-[12rem] rounded-md border border-black bg-popover p-2 shadow-md transition-all hover:shadow-[6px_6px_0px_#000]',
+        'z-50 min-w-[12rem] rounded-md border-2 border-black bg-popover p-2 shadow-lg transition-all hover:shadow-xl',
         className,
       )}
       {...props}
@@ -95,14 +98,13 @@ MenubarContent.displayName = MenubarPrimitive.Content.displayName;
 
 const MenubarItem = React.forwardRef<
   React.ElementRef<typeof MenubarPrimitive.Item>,
-  React.ComponentPropsWithoutRef<typeof MenubarPrimitive.Item> & {
-    inset?: boolean;
-  }
+  React.ComponentPropsWithoutRef<typeof MenubarPrimitive.Item> & { inset?: boolean }
 >(({ className, inset, ...props }, ref) => (
   <MenubarPrimitive.Item
     ref={ref}
     className={cn(
-      'relative flex cursor-pointer select-none items-center rounded-md px-4 py-2 text-sm transition-all hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+      'relative flex cursor-pointer select-none items-center rounded-md px-4 py-2 text-sm transition-all',
+      'hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
       inset && 'pl-10',
       className,
     )}
@@ -118,7 +120,8 @@ const MenubarCheckboxItem = React.forwardRef<
   <MenubarPrimitive.CheckboxItem
     ref={ref}
     className={cn(
-      'relative flex cursor-pointer select-none items-center rounded-md px-4 py-2 text-sm transition-all hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+      'relative flex cursor-pointer select-none items-center rounded-md px-4 py-2 text-sm transition-all',
+      'hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
       className,
     )}
     checked={checked}
@@ -140,7 +143,8 @@ const MenubarRadioItem = React.forwardRef<
   <MenubarPrimitive.RadioItem
     ref={ref}
     className={cn(
-      'relative flex cursor-pointer select-none items-center rounded-md px-4 py-2 text-sm transition-all hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+      'relative flex cursor-pointer select-none items-center rounded-md px-4 py-2 text-sm transition-all',
+      'hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
       className,
     )}
     {...props}

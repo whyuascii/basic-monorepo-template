@@ -4,15 +4,16 @@ import { cn } from '../lib/utils';
 
 const Table = React.forwardRef<
   HTMLTableElement,
-  React.HTMLAttributes<HTMLTableElement> & { striped?: boolean; bordered?: boolean }
->(({ className, striped = false, bordered = false, ...props }, ref) => (
+  React.HTMLAttributes<HTMLTableElement> & { striped?: boolean; bordered?: boolean; compact?: boolean }
+>(({ className, striped = false, bordered = false, compact = false, ...props }, ref) => (
   <div className="relative w-full overflow-auto">
     <table
       ref={ref}
       className={cn(
-        'w-full caption-bottom text-sm border-collapse',
+        'w-full border-collapse text-sm text-foreground',
         striped && '[&_tbody>tr:nth-child(even)]:bg-muted/50',
         bordered && 'border border-border [&_th]:border [&_td]:border',
+        compact ? 'text-xs [&_td]:p-1 [&_th]:p-2' : 'text-sm [&_td]:p-2 [&_th]:p-3',
         className,
       )}
       {...props}
@@ -23,7 +24,11 @@ Table.displayName = 'Table';
 
 const TableHeader = React.forwardRef<HTMLTableSectionElement, React.HTMLAttributes<HTMLTableSectionElement>>(
   ({ className, ...props }, ref) => (
-    <thead ref={ref} className={cn('[&_tr]:border-b bg-muted/50 text-foreground font-medium', className)} {...props} />
+    <thead
+      ref={ref}
+      className={cn('[&_tr]:border-b bg-muted/50 text-foreground font-medium uppercase', className)}
+      {...props}
+    />
   ),
 );
 TableHeader.displayName = 'TableHeader';
@@ -57,8 +62,11 @@ const TableHead = React.forwardRef<HTMLTableCellElement, React.ThHTMLAttributes<
   ({ className, ...props }, ref) => (
     <th
       ref={ref}
+      role="columnheader"
+      scope="col"
       className={cn(
-        'h-10 px-2 text-left align-middle font-medium text-foreground uppercase tracking-wider [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]',
+        'h-10 px-3 text-left align-middle font-semibold text-foreground tracking-widest',
+        '[&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]',
         className,
       )}
       {...props}

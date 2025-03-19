@@ -36,9 +36,9 @@ The **\`Badge\`** component is a **small visual indicator** used to highlight st
 1️⃣ **\`Badge\`** → Displays a **status label** with various color variants.
 
 ### 🔹 Features:
-✅ **Multiple Variants** → Default, Secondary, Destructive, Warning, Success, Info, Outline.\n
-✅ **Customizable** → Can be styled using Tailwind or class overrides.  \n
-✅ **Accessible** → Includes ARIA attributes and focus styles.  \n
+✅ **Multiple Variants** → Default, Secondary, Destructive, Warning, Success, Info, Outline.
+✅ **Customizable** → Can be styled using Tailwind or class overrides.
+✅ **Accessible** → Includes ARIA attributes and focus styles.
 
 `,
       },
@@ -63,9 +63,7 @@ export const Default: Story = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const badge = canvas.getByText('Default Badge');
-
-    expect(badge).toBeVisible();
+    expect(canvas.getByText('Default Badge')).toBeVisible();
   },
 };
 
@@ -153,9 +151,7 @@ export const LongText: Story = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const longTextBadge = canvas.getByText('This is a badge with a longer text content to test overflow behavior.');
-
-    expect(longTextBadge).toBeVisible();
+    expect(canvas.getByText('This is a badge with a longer text content to test overflow behavior.')).toBeVisible();
   },
 };
 
@@ -166,9 +162,7 @@ export const AccessibilityTest: Story = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const badge = canvas.getByText('Accessible Badge');
-
-    expect(badge).toBeVisible();
+    expect(canvas.getByText('Accessible Badge')).toBeVisible();
   },
 };
 

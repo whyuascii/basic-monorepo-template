@@ -6,9 +6,7 @@ import { cn } from '../lib/utils';
 
 const Breadcrumb = React.forwardRef<
   HTMLElement,
-  React.ComponentPropsWithoutRef<'nav'> & {
-    separator?: React.ReactNode;
-  }
+  React.ComponentPropsWithoutRef<'nav'> & { separator?: React.ReactNode }
 >(({ ...props }, ref) => <nav ref={ref} aria-label="breadcrumb" {...props} />);
 Breadcrumb.displayName = 'Breadcrumb';
 
@@ -17,7 +15,7 @@ const BreadcrumbList = React.forwardRef<HTMLOListElement, React.ComponentPropsWi
     <ol
       ref={ref}
       className={cn(
-        'flex flex-wrap items-center gap-2 px-4 py-2 rounded-[4px] border-2 border-black bg-background shadow-[4px_4px_0px_#000] transition-all hover:shadow-[6px_6px_0px_#000]',
+        'flex flex-wrap items-center gap-2 px-4 py-2 rounded-lg border border-border bg-background shadow-md transition-all duration-200 hover:shadow-lg',
         className,
       )}
       {...props}
@@ -31,7 +29,7 @@ const BreadcrumbItem = React.forwardRef<HTMLLIElement, React.ComponentPropsWitho
     <li
       ref={ref}
       className={cn(
-        'inline-flex items-center gap-2 font-bold uppercase text-foreground transition-all hover:text-primary active:translate-y-[2px]',
+        'inline-flex items-center gap-2 font-semibold text-sm text-foreground transition-all hover:text-primary active:scale-95',
         className,
       )}
       {...props}
@@ -40,25 +38,19 @@ const BreadcrumbItem = React.forwardRef<HTMLLIElement, React.ComponentPropsWitho
 );
 BreadcrumbItem.displayName = 'BreadcrumbItem';
 
-const BreadcrumbLink = React.forwardRef<
-  HTMLAnchorElement,
-  React.ComponentPropsWithoutRef<'a'> & {
-    asChild?: boolean;
-  }
->(({ asChild, className, ...props }, ref) => {
-  const Comp = asChild ? Slot : 'a';
+const BreadcrumbLink = React.forwardRef<HTMLAnchorElement, React.ComponentPropsWithoutRef<'a'> & { asChild?: boolean }>(
+  ({ asChild, className, ...props }, ref) => {
+    const Comp = asChild ? Slot : 'a';
 
-  return (
-    <Comp
-      ref={ref}
-      className={cn(
-        'transition-all hover:text-primary hover:underline active:translate-y-[2px] text-foreground',
-        className,
-      )}
-      {...props}
-    />
-  );
-});
+    return (
+      <Comp
+        ref={ref}
+        className={cn('transition-all hover:text-primary hover:underline active:scale-95 text-foreground', className)}
+        {...props}
+      />
+    );
+  },
+);
 BreadcrumbLink.displayName = 'BreadcrumbLink';
 
 const BreadcrumbPage = React.forwardRef<HTMLSpanElement, React.ComponentPropsWithoutRef<'span'>>(
@@ -69,7 +61,7 @@ const BreadcrumbPage = React.forwardRef<HTMLSpanElement, React.ComponentPropsWit
       aria-disabled="true"
       aria-current="page"
       tabIndex={0}
-      className={cn('font-bold text-foreground border-b-2 border-black pb-1', className)}
+      className={cn('font-bold text-primary border-b border-border pb-1', className)}
       {...props}
     />
   ),
@@ -80,13 +72,10 @@ const BreadcrumbSeparator = ({ children, className, ...props }: React.ComponentP
   <li
     role="presentation"
     aria-hidden="true"
-    className={cn(
-      'px-1 text-black transition-transform duration-200 hover:scale-125 [&>svg]:h-4 [&>svg]:w-4',
-      className,
-    )}
+    className={cn('px-1 text-foreground transition-transform duration-200 hover:scale-125', className)}
     {...props}
   >
-    {children ?? <ChevronRight />}
+    {children ?? <ChevronRight className="h-4 w-4 opacity-60" />}
   </li>
 );
 BreadcrumbSeparator.displayName = 'BreadcrumbSeparator';
@@ -96,12 +85,12 @@ const BreadcrumbEllipsis = ({ className, ...props }: React.ComponentProps<'span'
     role="presentation"
     aria-hidden="true"
     className={cn(
-      'flex h-9 w-9 items-center justify-center rounded-[4px] border-2 border-black bg-muted shadow-[4px_4px_0px_#000] transition-all hover:shadow-[6px_6px_0px_#000]',
+      'flex h-8 w-8 items-center justify-center rounded-md border border-border bg-muted shadow-md transition-all hover:shadow-lg hover:scale-105',
       className,
     )}
     {...props}
   >
-    <MoreHorizontal className="h-5 w-5 text-black" />
+    <MoreHorizontal className="h-5 w-5 text-foreground opacity-70" />
     <span className="sr-only">More</span>
   </span>
 );

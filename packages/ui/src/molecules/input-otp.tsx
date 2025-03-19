@@ -9,11 +9,13 @@ const InputOTP = React.forwardRef<React.ElementRef<typeof OTPInput>, React.Compo
     <OTPInput
       ref={ref}
       containerClassName={cn(
-        'flex items-center gap-2 has-[:disabled]:opacity-50',
-        'rounded-md border-2 border-black bg-background p-2 shadow-[4px_4px_0px_#000] transition-all hover:shadow-[6px_6px_0px_#000]',
+        'flex items-center gap-2',
+        'rounded-md border-2 border-black bg-background p-2 shadow-md transition-all hover:shadow-lg',
+        'focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 focus-within:ring-offset-background',
+        'disabled:opacity-50 disabled:cursor-not-allowed',
         containerClassName,
       )}
-      className={cn('disabled:cursor-not-allowed text-foreground', className)}
+      className={cn('disabled:cursor-not-allowed text-foreground tracking-widest text-lg', className)}
       {...props}
     />
   ),
@@ -21,7 +23,7 @@ const InputOTP = React.forwardRef<React.ElementRef<typeof OTPInput>, React.Compo
 InputOTP.displayName = 'InputOTP';
 
 const InputOTPGroup = React.forwardRef<React.ElementRef<'div'>, React.ComponentPropsWithoutRef<'div'>>(
-  ({ className, ...props }, ref) => <div ref={ref} className={cn('flex items-center gap-1', className)} {...props} />,
+  ({ className, ...props }, ref) => <div ref={ref} className={cn('flex items-center gap-2', className)} {...props} />,
 );
 InputOTPGroup.displayName = 'InputOTPGroup';
 
@@ -36,8 +38,9 @@ const InputOTPSlot = React.forwardRef<
     <div
       ref={ref}
       className={cn(
-        'relative flex h-12 w-12 items-center justify-center border-2 border-black text-lg font-mono shadow-[3px_3px_0px_#000] transition-all',
-        'rounded-md bg-card text-card-foreground',
+        'relative flex h-14 w-14 items-center justify-center border-2 border-black text-lg font-mono shadow-md transition-all',
+        'rounded-lg bg-card text-card-foreground',
+        'hover:shadow-lg hover:border-primary focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2',
         isActive && 'z-10 ring-2 ring-primary bg-primary text-primary-foreground',
         className,
       )}
@@ -57,7 +60,7 @@ InputOTPSlot.displayName = 'InputOTPSlot';
 const InputOTPSeparator = React.forwardRef<React.ElementRef<'div'>, React.ComponentPropsWithoutRef<'div'>>(
   ({ ...props }, ref) => (
     <div ref={ref} className="px-1 text-muted-foreground" {...props}>
-      <Minus />
+      <Minus className="h-6 w-6 text-black" />
     </div>
   ),
 );

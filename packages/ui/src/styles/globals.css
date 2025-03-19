@@ -4,96 +4,92 @@
 
 @layer base {
   :root {
-    /* === LIGHT MODE COLORS === */
-    --background: 0 0% 100%;
-    --foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* === LIGHT MODE COLORS (New Age + Unique) === */
+    --background: 50 30% 98%; /* Soft Warm White */
+    --foreground: 250 20% 12%; /* Deep Charcoal */
+    --muted: 50 15% 92%; /* Light Pastel Gray */
+    --muted-foreground: 250 12% 40%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 47.4% 11.2%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
+    --popover-foreground: 250 20% 12%;
+    --border: 50 15% 85%;
+    --input: 50 15% 85%;
     --card: 0 0% 100%;
-    --card-foreground: 222.2 47.4% 11.2%;
-    --ring: 215 20.2% 65.1%;
-    --radius: 0.5rem;
+    --card-foreground: 250 20% 12%;
+    --ring: 280 40% 65%;
+    --radius: 0.75rem;
 
-    /* === PRIMARY PALETTE (Updated for AAA Compliance) === */
-    --primary: 51 100% 60%; /* #ffe831 - Bright Yellow */
-    --primary-foreground: 0 0% 0%;
+    /* === PRIMARY COLORS (Bright, Modern, Unique) === */
+    --primary: 285 75% 55%; /* Electric Orchid (Unique Magenta-Purple) */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 96 63% 58%; /* #a7e143 - Lime Green */
-    --secondary-foreground: 0 0% 0%;
+    --secondary: 40 90% 55%; /* Vibrant Peach (Warm, Inviting) */
+    --secondary-foreground: 0 0% 100%;
 
-    --accent: 157 58% 58%; /* #68d888 - Soft Teal */
-    --accent-foreground: 0 0% 0%;
+    --accent: 165 70% 45%; /* Soft Cyan-Green (New Age Mint) */
+    --accent-foreground: 0 0% 100%;
 
-    --info: 189 64% 49%; /* #37c6d8 - Sky Blue */
-    --info-foreground: 0 0% 0%;
+    --info: 300 55% 55%; /* Muted Neon Purple */
+    --info-foreground: 0 0% 100%;
 
-    --success: 174 53% 49%; /* #34d2a3 - Aqua */
-    --success-foreground: 0 0% 0%;
+    --success: 120 55% 42%; /* Modern Green */
+    --success-foreground: 0 0% 100%;
 
-    --warning: 35 100% 60%; /* Orange - Ensures contrast */
-    --warning-foreground: 0 0% 0%;
+    --warning: 35 100% 55%; /* Warm Yellow-Orange */
+    --warning-foreground: 0 0% 100%;
 
-    --destructive: 0 100% 35%; /* Red (Darker for AAA compliance) */
+    --destructive: 0 70% 50%; /* Punchy Red */
     --destructive-foreground: 0 0% 100%;
 
-    /* === Additional Modern Styles === */
-    --shadow-color: rgba(0, 0, 0, 0.1);
-    --glass-bg: rgba(255, 255, 255, 0.6);
+    /* === GLASSMORPHISM EFFECT (Balanced & Subtle) === */
+    --glass-bg: rgba(255, 255, 255, 0.5);
+    --glass-border: rgba(255, 255, 255, 0.3);
     --glass-blur: blur(10px);
-
-    /* Replace Default Colors */
-    --pink: 348 90% 60%;
-    --orange: 35 100% 60%;
-    --purple: 260 70% 50%;
+    --glass-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
   }
 
   .dark {
-    /* === DARK MODE COLORS === */
-    --background: 0 0% 0%;
-    --foreground: 210 40% 98%;
-    --muted: 223 47% 11%;
-    --muted-foreground: 215.4 16.3% 56.9%;
-    --popover: 0 0% 0%;
-    --popover-foreground: 210 40% 98%;
-    --border: 216 34% 17%;
-    --input: 216 34% 17%;
-    --card: 0 0% 0%;
-    --card-foreground: 210 40% 98%;
-    --ring: 216 34% 17%;
-    --radius: 0.5rem;
+    /* === DARK MODE COLORS (Futuristic but Accessible) === */
+    --background: 250 30% 10%; /* Deep Modern Charcoal */
+    --foreground: 50 15% 92%; /* Soft White */
+    --muted: 250 25% 14%;
+    --muted-foreground: 250 15% 65%;
+    --popover: 250 30% 12%;
+    --popover-foreground: 50 15% 92%;
+    --border: 250 20% 22%;
+    --input: 250 20% 22%;
+    --card: 250 30% 12%;
+    --card-foreground: 50 15% 92%;
+    --ring: 285 60% 55%;
 
-    /* === DARK MODE PRIMARY PALETTE === */
-    --primary: 51 100% 55%; /* Darker Yellow */
+    /* === Dark Mode Adjusted Primary Colors === */
+    --primary: 285 75% 60%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 96 63% 52%; /* Dark Lime Green */
+    --secondary: 40 90% 50%;
     --secondary-foreground: 0 0% 100%;
 
-    --accent: 157 58% 52%; /* Dark Teal */
+    --accent: 165 70% 40%;
     --accent-foreground: 0 0% 100%;
 
-    --info: 189 64% 45%; /* Darker Sky Blue */
+    --info: 300 55% 50%;
     --info-foreground: 0 0% 100%;
 
-    --success: 174 53% 45%; /* Darker Aqua */
+    --success: 120 55% 38%;
     --success-foreground: 0 0% 100%;
 
-    --warning: 35 100% 50%; /* Darker Orange */
+    --warning: 35 100% 50%;
     --warning-foreground: 0 0% 100%;
 
-    --destructive: 0 63% 31%; /* Darker Red */
+    --destructive: 0 70% 45%;
     --destructive-foreground: 0 0% 100%;
 
-    /* === Additional Dark Mode Styles === */
-    --shadow-color: rgba(255, 255, 255, 0.1);
-    --glass-bg: rgba(0, 0, 0, 0.6);
+    /* === Dark Glassmorphism Effect === */
+    --glass-bg: rgba(0, 0, 0, 0.4);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --glass-shadow: 0 6px 14px rgba(255, 255, 255, 0.05);
   }
 
-  /* === APPLY BASE STYLES === */
+  /* === BASE STYLES === */
   * {
     @apply border-border transition-all duration-200;
   }
@@ -102,15 +98,16 @@
     @apply font-sans bg-background text-foreground antialiased leading-relaxed;
   }
 
-  /* === GLASSMORPHISM ELEMENTS === */
+  /* === GLASSMORPHISM ELEMENTS (Soft Glow, Unique Style) === */
   .glass {
     background: var(--glass-bg);
     backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
     border-radius: var(--radius);
-    box-shadow: 0 4px 6px var(--shadow-color);
+    box-shadow: var(--glass-shadow);
   }
 
-  /* === MODERN HOVER & INTERACTION EFFECTS === */
+  /* === MODERN INTERACTIVE ELEMENTS === */
   .interactive {
     transition:
       transform 0.2s ease,
@@ -119,353 +116,10 @@
 
   .interactive:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 12px var(--shadow-color);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
   }
 
   .interactive:active {
     transform: translateY(1px);
-  }
-  .aspect-ratio-content {
-    @apply absolute inset-0 w-full h-full object-cover;
-  }
-  .avatar {
-    @apply rounded-full shadow-md transition-all duration-300;
-  }
-
-  .avatar:hover {
-    @apply shadow-lg scale-105;
-  }
-
-  .avatar:active {
-    @apply scale-95;
-  }
-  .badge {
-    @apply px-3 py-1 text-xs font-semibold uppercase tracking-wide rounded-md transition-all duration-200 shadow-md;
-  }
-
-  .badge:hover {
-    @apply shadow-lg scale-105;
-  }
-
-  .badge:active {
-    @apply scale-95;
-  }
-
-  .badge-outline {
-    @apply border border-border bg-transparent text-foreground shadow-none hover:bg-muted/20;
-  }
-  .btn {
-    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium transition-all duration-200 shadow-md;
-  }
-
-  .btn:hover {
-    @apply shadow-lg scale-105;
-  }
-
-  .btn:active {
-    @apply scale-95;
-  }
-
-  .btn-outline {
-    @apply border border-border bg-transparent text-foreground shadow-sm hover:bg-muted/20 hover:shadow-md;
-  }
-
-  .checkbox {
-    @apply h-5 w-5 shrink-0 border border-border rounded-md bg-background shadow-md transition-all duration-200;
-  }
-
-  .checkbox:hover {
-    @apply shadow-lg scale-105;
-  }
-
-  .checkbox:active {
-    @apply scale-95;
-  }
-
-  .checkbox-checked {
-    @apply bg-primary text-primary-foreground;
-  }
-  .container {
-    @apply max-w-7xl mx-auto px-6 py-4 rounded-lg border border-border bg-background shadow-md transition-all duration-200;
-  }
-
-  .container:hover {
-    @apply shadow-lg scale-[1.02];
-  }
-
-  .container:active {
-    @apply scale-95;
-  }
-
-  .image {
-    @apply relative rounded-lg border border-border shadow-md transition-all duration-300;
-  }
-
-  .image:hover {
-    @apply shadow-lg scale-105;
-  }
-
-  .image::before {
-    @apply absolute inset-0 bg-gradient-to-r from-primary via-accent to-secondary rounded-lg blur-md opacity-0 transition-opacity duration-300;
-  }
-
-  .image:hover::before {
-    @apply opacity-100;
-  }
-  .input {
-    @apply flex h-10 w-full rounded-lg border border-border bg-background px-3 py-2 text-lg font-mono text-foreground shadow-md transition-all duration-200;
-  }
-
-  .input:focus {
-    @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-background shadow-lg scale-[1.02];
-  }
-
-  .input:hover {
-    @apply shadow-lg border-primary;
-  }
-
-  .input:active {
-    @apply scale-95;
-  }
-
-  .input:disabled {
-    @apply cursor-not-allowed opacity-50;
-  }
-  .label {
-    @apply relative px-2 py-1 rounded-md border border-border bg-secondary/90 shadow-md transition-all duration-200;
-  }
-
-  .label:hover {
-    @apply shadow-lg scale-105;
-  }
-
-  .label:focus-within {
-    @apply ring-2 ring-primary ring-offset-2 ring-offset-background scale-[1.02];
-  }
-
-  .label:disabled {
-    @apply cursor-not-allowed opacity-50;
-  }
-  .mode-toggle {
-    @apply flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-secondary shadow-md transition-all duration-200;
-  }
-
-  .mode-toggle:hover {
-    @apply shadow-lg scale-105;
-  }
-
-  .mode-toggle:active {
-    @apply scale-95;
-  }
-
-  .mode-dropdown {
-    @apply border border-border bg-popover/80 backdrop-blur-md p-2 shadow-lg transition-all duration-200;
-  }
-
-  .mode-dropdown-item {
-    @apply cursor-pointer rounded-md px-4 py-2 text-sm font-medium text-foreground transition-all duration-200 hover:bg-primary hover:text-primary-foreground hover:scale-105;
-  }
-  .popover {
-    @apply z-50 w-72 rounded-lg border border-border bg-popover/90 backdrop-blur-md p-4 text-popover-foreground shadow-lg transition-all duration-200;
-  }
-
-  .popover:hover {
-    @apply shadow-xl scale-105;
-  }
-
-  .popover[data-state='open'] {
-    @apply animate-in fade-in-0 zoom-in-95;
-  }
-
-  .popover[data-state='closed'] {
-    @apply animate-out fade-out-0 zoom-out-95;
-  }
-  .select {
-    @apply flex h-10 w-full items-center justify-between rounded-lg border border-border bg-background px-4 py-2 text-sm font-medium shadow-md transition-all duration-200;
-  }
-
-  .select:hover {
-    @apply border-accent shadow-lg;
-  }
-
-  .select:focus {
-    @apply border-ring ring-2 ring-ring focus:shadow-lg;
-  }
-
-  .select-content {
-    @apply z-50 max-h-80 min-w-[10rem] overflow-hidden rounded-lg border border-border bg-popover/90 backdrop-blur-md p-2 text-popover-foreground shadow-lg transition-all duration-200;
-  }
-
-  .select-item {
-    @apply relative flex w-full cursor-pointer select-none items-center rounded-md py-2 px-4 text-sm transition-all duration-200 focus:bg-accent focus:text-accent-foreground hover:bg-muted/30 active:bg-muted/50;
-  }
-
-  .separator {
-    @apply shrink-0 bg-border transition-all duration-200 ease-in-out;
-  }
-
-  .separator-horizontal {
-    @apply h-px w-full;
-  }
-
-  .separator-vertical {
-    @apply h-full w-px;
-  }
-
-  .separator:hover {
-    @apply opacity-100;
-  }
-
-  .separator-dark {
-    @apply dark:bg-gray-600 bg-gray-300 opacity-80;
-  }
-
-  .skeleton {
-    @apply relative overflow-hidden bg-muted/40 dark:bg-muted/30 animate-pulse;
-  }
-
-  .skeleton::before {
-    @apply absolute inset-0 z-10 bg-gradient-to-r from-transparent via-muted/20 to-transparent animate-shimmer;
-  }
-
-  @keyframes shimmer {
-    0% {
-      transform: translateX(-100%);
-    }
-    100% {
-      transform: translateX(100%);
-    }
-  }
-
-  .animate-shimmer {
-    animation: shimmer 1.5s infinite linear;
-  }
-
-  .slider {
-    @apply relative flex w-full touch-none select-none items-center;
-  }
-
-  .slider-track {
-    @apply relative h-2 w-full grow overflow-hidden rounded-full bg-muted/50;
-  }
-
-  .slider-range {
-    @apply absolute h-full bg-gradient-to-r from-primary to-accent transition-all;
-  }
-
-  .slider-thumb {
-    @apply block h-5 w-5 rounded-full border border-border bg-background shadow-md transition-all hover:scale-110;
-  }
-
-  .slider-thumb:focus-visible {
-    @apply ring-2 ring-ring ring-offset-2;
-  }
-
-  .slider-tooltip {
-    @apply absolute bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-popover px-2 py-1 text-xs text-popover-foreground shadow-md transition-all;
-  }
-  .spinner {
-    @apply flex items-center justify-center transition-opacity duration-200;
-  }
-
-  .spinner-hidden {
-    @apply opacity-0 hidden;
-  }
-
-  .spinner-show {
-    @apply opacity-100 flex;
-  }
-
-  .spinner-loader {
-    @apply animate-spin transition-transform duration-300 drop-shadow-md;
-  }
-
-  .spinner-label {
-    @apply text-sm text-muted-foreground;
-  }
-  .switch {
-    @apply relative inline-flex h-6 w-11 shrink-0 items-center rounded-full border border-border shadow-md transition-all duration-300;
-  }
-
-  .switch[data-state='checked'] {
-    @apply bg-gradient-to-r from-primary to-accent;
-  }
-
-  .switch[data-state='unchecked'] {
-    @apply bg-muted/50;
-  }
-
-  .switch-thumb {
-    @apply absolute left-1 h-5 w-5 rounded-full bg-background shadow-md ring-0 transition-all duration-300;
-  }
-
-  .switch-thumb[data-state='checked'] {
-    @apply translate-x-5;
-  }
-
-  .switch-thumb[data-state='unchecked'] {
-    @apply translate-x-0;
-  }
-  .textarea {
-    @apply flex min-h-[100px] w-full resize-y rounded-lg border border-border bg-background/90 px-4 py-2 text-sm shadow-md transition-all duration-200;
-  }
-
-  .textarea:hover {
-    @apply border-accent;
-  }
-
-  .textarea:focus {
-    @apply border-primary ring-2 ring-primary ring-offset-2 ring-offset-background;
-  }
-
-  .textarea:disabled {
-    @apply cursor-not-allowed opacity-50;
-  }
-  .toggle {
-    @apply inline-flex items-center justify-center rounded-lg text-sm font-medium transition-all duration-200 ease-in-out;
-  }
-
-  .toggle:hover {
-    @apply bg-muted text-muted-foreground;
-  }
-
-  .toggle-outline {
-    @apply border border-border bg-background text-foreground shadow-md hover:bg-accent hover:text-accent-foreground;
-  }
-
-  .toggle-active {
-    @apply bg-primary text-primary-foreground shadow-lg;
-  }
-
-  .toggle-ghost {
-    @apply bg-transparent text-muted-foreground hover:bg-muted/30;
-  }
-
-  .toggle-focus {
-    @apply focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
-  }
-
-  .toggle-disabled {
-    @apply pointer-events-none opacity-50;
-  }
-  .tooltip {
-    @apply z-50 overflow-hidden rounded-md px-3 py-1.5 text-xs font-medium shadow-md transition-all duration-200;
-  }
-
-  .tooltip-bg {
-    @apply bg-background text-foreground backdrop-blur-md border border-border;
-  }
-
-  .tooltip-fade {
-    @apply animate-in fade-in-50 zoom-in-95;
-  }
-
-  .tooltip-fade-out {
-    @apply animate-out fade-out-50 zoom-out-95;
-  }
-
-  .tooltip-slide {
-    @apply data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2;
-    @apply data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2;
   }
 }

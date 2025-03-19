@@ -12,7 +12,8 @@ const TabsList = React.forwardRef<
   <TabsPrimitive.List
     ref={ref}
     className={cn(
-      'inline-flex h-10 items-center justify-center rounded-lg bg-muted p-1 text-muted-foreground border border-border shadow-sm',
+      'inline-flex h-12 items-center justify-center rounded-lg border border-border bg-glass backdrop-blur-lg p-1 text-muted-foreground shadow-md transition-all hover:shadow-lg',
+      'focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2',
       className,
     )}
     {...props}
@@ -27,9 +28,11 @@ const TabsTrigger = React.forwardRef<
   <TabsPrimitive.Trigger
     ref={ref}
     className={cn(
-      'inline-flex items-center justify-center whitespace-nowrap rounded-md px-4 py-2 text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
-      'data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow',
-      'hover:bg-accent hover:text-accent-foreground',
+      'relative inline-flex items-center justify-center whitespace-nowrap rounded-md px-6 py-2 text-sm font-semibold uppercase tracking-wide transition-all duration-200',
+      'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
+      'disabled:pointer-events-none disabled:opacity-50',
+      'data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary data-[state=active]:to-secondary data-[state=active]:text-primary-foreground',
+      'hover:bg-accent hover:text-accent-foreground shadow-md hover:shadow-lg active:shadow-none',
       className,
     )}
     {...props}
@@ -44,7 +47,7 @@ const TabsContent = React.forwardRef<
   <TabsPrimitive.Content
     ref={ref}
     className={cn(
-      'mt-3 p-4 border rounded-md bg-background shadow-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
+      'mt-4 rounded-lg border border-border bg-glass p-6 backdrop-blur-lg shadow-lg transition-all duration-200 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
       className,
     )}
     {...props}
