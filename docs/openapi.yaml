@@ -1,0 +1,124 @@
+openapi: 3.0.3
+info:
+  title: API Documentation
+  description: |
+    Comprehensive API documentation for MainComponent and HelperService.
+    
+    This API provides core functionality for data processing, transformation, and validation.
+  version: 1.0.0
+  contact:
+    email: support@example.com
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+
+servers:
+  - url: http://localhost:3000
+    description: Development server
+  - url: https://api.example.com
+    description: Production server
+
+tags:
+  - name: Health
+    description: Health check endpoints
+  - name: Processing
+    description: Data processing operations
+  - name: Transformation
+    description: Data transformation operations
+  - name: Validation
+    description: Data validation operations
+
+security:
+  - BearerAuth: []
+
+paths:
+  /health:
+    get:
+      tags:
+        - Health
+      summary: Health check
+      description: Returns the health status of the API
+      security: []
+      responses:
+        '200':
+          description: Service is healthy
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+              example:
+                status: healthy
+                timestamp: '2024-01-15T10:30:00Z'
+                version: '1.0.0'
+
+  /api/v1/process:
+    post:
+      tags:
+        - Processing
+      summary: Process data
+      description: Process input data through the main component
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessRequest'
+            example:
+              data:
+                field1: value1
+                field2: value2
+              options:
+                priority: high
+                async: false
+      responses:
+        '200':
+          description: Successfully processed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessResponse'
+        '400':
+          description: Bad request - Invalid input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /api/v1/transform:
+    post:
+      tags:
+        - Transformation
+      summary: Transform data
+      description: Transform data using helper service
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransformRequest'
+            example:
+              input: raw data
+              type: normalize
+      responses:
+        '200':
+          description: Successfully transformed
+          content:
+            application/json:
